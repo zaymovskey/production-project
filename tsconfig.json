@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist/",
+    "noImplicitAny": true, // Заставляет использовать типизацию
+    "module": "esnext", // Модульная сборка
+    "target": "es5", // Спецификация, в которую будет скомпилирован файл сборки
+    "jsx": "react-jsx",
+    "allowJs": true, // Позволяет компилятору обрабатывать не только .ts но и .js файлы
+    "moduleResolution": "node", // Хуйня какая-то
+    "allowSyntheticDefaultImports": true, // Позволяет импортировать пакет с помощью import some_name from pack_name,
+    // а не import * as some_name from pack_name, даже если у пакета нет export default
+    "esModuleInterop": true, // Позволяет работать с пакетами, которые используют common js как с обычными пакетами import/export
+    "plugins": [
+      { "name": "typescript-plugin-css-modules" },
+    ],
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
