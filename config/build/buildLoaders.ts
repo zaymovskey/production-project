@@ -21,7 +21,7 @@ export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
             modules: { // Работа с .modules. (генерация уникальных классов)
               auto: /\.module.?/, // Регулярка, по которой лоадер определяет для каких файлов генерировать уникальные классы
               localIdentName: options.mode === 'development' ?
-                '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
+                '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]', // Имена классов на стадии разработки (dev)
             },
           },
         }, // Translates CSS into CommonJS
@@ -29,7 +29,7 @@ export function buildLoaders(options: IBuildOptions): webpack.RuleSetRule[] {
       ],
     }
 
-  return [ // Конфигирирование лоадеров
+  return [
     typescriptLoader,
     cssLoader,
   ]

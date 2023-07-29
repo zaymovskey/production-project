@@ -1,4 +1,4 @@
-import {LOCAL_STORAGE_THEME_KEY, EnumTheme, ThemeContext} from "shared/lib/ThemeContext";
+import {LOCAL_STORAGE_THEME_KEY, EnumTheme, ThemeContext} from "app/providers/ThemeProvider/ui/ThemeContext";
 import {useContext} from "react";
 
 interface IUseThemeResult {

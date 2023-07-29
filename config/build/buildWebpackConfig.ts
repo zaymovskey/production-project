@@ -20,7 +20,7 @@ export function buildWebpackConfig(options: IBuildOptions): webpack.Configuratio
     plugins: buildPlugins(paths), // В отличие от лоадеров, плагины позволяют выполнять задачи после сборки бандла. Эти задачи могут
     // касаться как самого бандла, так и другого кода. Вы можете думать о плагинах как о более мощных, менее
     // ограниченных лоадерах.
-    module: {
+    module: { // Конфигурирование лоадеров
       rules: buildLoaders(options),
     },
     resolve: buildResolvers(options), // Расширения
