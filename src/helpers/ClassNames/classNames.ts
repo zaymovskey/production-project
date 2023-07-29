@@ -8,5 +8,5 @@ export function classNames(cls: string, mods: TypeModes = {}, additional: string
       .filter(([className, value]) => Boolean(value))
       .map(([key]) => key)
   ]
-    .join(' ')
+    .join(' ').replace(/\s+$/, '');
 }
