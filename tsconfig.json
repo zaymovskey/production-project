@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "*" : ["./src/*"], // Все абсолютные импорты/экспорты будут идти из папки src
+    },
     "outDir": "./dist/",
     "noImplicitAny": true, // Заставляет использовать типизацию
     "module": "esnext", // Модульная сборка
@@ -12,8 +15,8 @@
     // а не import * as some_name from pack_name, даже если у пакета нет export default
     "esModuleInterop": true, // Позволяет работать с пакетами, которые используют common js как с обычными пакетами import/export
     "plugins": [
-      { "name": "typescript-plugin-css-modules" },
-    ],
+      { "name": "typescript-plugin-css-modules" }
+    ]
   },
   "ts-node": {
     "compilerOptions": {
