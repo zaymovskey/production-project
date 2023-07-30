@@ -29,6 +29,7 @@
     width: 25px;
     height: 70%;
     background: var(--theme-button-color);
+    filter: blur(0.6px);
     border-radius: 50%;
     transition: 0.3s;
   }
