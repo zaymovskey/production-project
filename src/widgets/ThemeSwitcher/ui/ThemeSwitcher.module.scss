@@ -34,6 +34,7 @@
     border-radius: 50%;
     transition: 0.3s;
     background-color: var(--theme-button-color);
+    filter: blur(1px);
     z-index: 1;
   }
 }
@@ -45,6 +46,7 @@
   background-color: transparent;
   box-shadow: inset 12px -7px 5px -5px var(--theme-button-color);
   border-radius: 50%;
+  filter: none;
 }
 
 .checkbox:checked:checked ~ .cloud {
