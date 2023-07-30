@@ -1,4 +1,4 @@
-import {LOCAL_STORAGE_THEME_KEY, EnumTheme, ThemeContext} from "app/providers/ThemeProvider/ui/ThemeContext";
+import {EnumTheme, LOCAL_STORAGE_THEME_KEY, ThemeContext} from "app/providers/ThemeProvider/ui/ThemeContext";
 import {useContext} from "react";
 
 interface IUseThemeResult {
@@ -10,10 +10,7 @@ export function useTheme(): IUseThemeResult {
   const {theme, setTheme} = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    const currentIndex = Object.values(EnumTheme).indexOf(theme);
-    const len = Object.values(EnumTheme).length
-    const currentElementIsLast = currentIndex !== len - 1;
-    const newTheme = currentElementIsLast ? Object.values(EnumTheme)[currentIndex + 1] : Object.values(EnumTheme)[0];
+    const newTheme = theme === EnumTheme.LIGHT ? EnumTheme.DARK : EnumTheme.LIGHT;
     setTheme(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   }
