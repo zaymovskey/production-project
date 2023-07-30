@@ -20,7 +20,18 @@ export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
         checked={theme === EnumTheme.DARK}
       />
       <label onClick={toggleTheme} htmlFor="switch" className={cls.button}/>
-      <div className={cls.cloud}></div>
+      <div className={cls.cloud}/>
+      <div className={cls.stars}>
+        <div className={cls.starsItem}>
+          ★
+        </div>
+        <div className={cls.starsItem}>
+          ★
+        </div>
+        <div className={cls.starsItem}>
+          ★
+        </div>
+      </div>
     </div>
   );
 };
