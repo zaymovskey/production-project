@@ -1,8 +1,9 @@
 .ThemeSwitcher {
   height: 70%;
-  margin-left: auto;
+  max-width: 70px;
   position: relative;
   overflow: hidden;
+  min-height: 35px;
 }
 
 .checkbox {
@@ -41,6 +42,7 @@
   position: relative;
   transition: 0.3s;
   overflow: hidden;
+  min-height: 35px;
 
   &:after {
     content: '';

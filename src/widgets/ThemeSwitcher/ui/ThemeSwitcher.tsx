@@ -18,8 +18,9 @@ export const ThemeSwitcher = ({className}: ThemeSwitcherProps) => {
         id="switch"
         className={cls.checkbox}
         checked={theme === EnumTheme.DARK}
+        onChange={toggleTheme}
       />
-      <label onClick={toggleTheme} htmlFor="switch" className={cls.button}/>
+      <label htmlFor="switch" className={cls.button}/>
       <div className={cls.cloud}/>
       <div className={cls.stars}>
         <div className={cls.starsItem}>
