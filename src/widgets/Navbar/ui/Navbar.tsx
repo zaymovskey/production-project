@@ -18,8 +18,6 @@ export const Navbar = ({ className }: NavbarProps) => {
       <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath[AppRoutes.ABOUT]}>
         About
       </AppLink>
-
-      <ThemeSwitcher />
     </div>
   );
 };
