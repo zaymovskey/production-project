@@ -14,7 +14,7 @@
   width: 0;
   position: absolute;
 
-  &:checked  {
+  &:checked {
     & + .button:after {
       left: calc(100% - 5px);
       transform: translateX(-100%);
@@ -104,7 +104,7 @@
   top: 0;
   display: flex;
   transition: 0.3s;
-  transform: translateY(-200%);
+  transform: translateY(-100%);
   pointer-events: none;
 
   &Item {

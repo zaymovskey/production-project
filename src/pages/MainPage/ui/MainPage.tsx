@@ -1,12 +1,7 @@
-import React from 'react';
-import {ThemeSwitcher} from "widgets/ThemeSwitcher";
+import React from "react";
 
 const MainPage = () => {
-  return (
-    <div>
-      <ThemeSwitcher/>
-    </div>
-  );
+  return <div>MainPage</div>;
 };
 
 export default MainPage;
