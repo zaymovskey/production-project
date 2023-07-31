@@ -2,7 +2,7 @@ import {
   EnumTheme,
   LOCAL_STORAGE_THEME_KEY,
   ThemeContext,
-} from "app/providers/ThemeProvider/ui/ThemeContext";
+} from "features/ThemeSwitcher/lib/ThemeContext";
 import { useContext } from "react";
 
 interface IUseThemeResult {

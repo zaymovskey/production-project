@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/index.scss";
-import { useTheme } from "app/providers/ThemeProvider/ui/useTheme";
+import { useTheme } from "features/ThemeSwitcher/lib/useTheme";
 import { classNames } from "shared/lib/ClassNames/classNames";
 import { AppRouter } from "app/providers/AppRouter";
 import { Navbar } from "widgets/Navbar";

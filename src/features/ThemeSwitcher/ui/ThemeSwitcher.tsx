@@ -1,8 +1,8 @@
 import { classNames } from "shared/lib/ClassNames/classNames";
 import cls from "./ThemeSwitcher.module.scss";
 import React from "react";
-import { useTheme } from "app/providers/ThemeProvider/ui/useTheme";
-import { EnumTheme } from "app/providers/ThemeProvider/ui/ThemeContext";
+import { useTheme } from "features/ThemeSwitcher/lib/useTheme";
+import { EnumTheme } from "features/ThemeSwitcher/lib/ThemeContext";
 
 interface ThemeSwitcherProps {
   className?: string;
