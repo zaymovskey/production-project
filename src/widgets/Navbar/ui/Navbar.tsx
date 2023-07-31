@@ -11,10 +11,10 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => {
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
-      <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath[AppRoutes.MAIN]}>
+      <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main}>
         Main
       </AppLink>
-      <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath[AppRoutes.ABOUT]}>
+      <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about}>
         About
       </AppLink>
     </div>
