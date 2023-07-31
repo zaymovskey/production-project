@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/index.scss';
 import {useTheme} from "app/providers/ThemeProvider/ui/useTheme";
-import {classNames} from "helpers/ClassNames/classNames";
+import {classNames} from "shared/lib/ClassNames/classNames";
 import {AppRouter} from "app/providers/AppRouter";
 import {Navbar} from "widgets/Navbar";
 

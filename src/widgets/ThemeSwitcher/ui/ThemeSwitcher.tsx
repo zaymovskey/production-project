@@ -1,4 +1,4 @@
-import {classNames} from "helpers/ClassNames/classNames";
+import {classNames} from "shared/lib/ClassNames/classNames";
 import cls from './ThemeSwitcher.module.scss';
 import React from "react";
 import {useTheme} from "app/providers/ThemeProvider/ui/useTheme";

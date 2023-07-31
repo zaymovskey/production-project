@@ -1,5 +1,5 @@
 import React from 'react';
-import {classNames} from "helpers/ClassNames/classNames";
+import {classNames} from "shared/lib/ClassNames/classNames";
 import cls from './Navbar.module.scss';
 import {AppLink, AppLinkTheme} from "shared/ui/AppLink/AppLink";
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
