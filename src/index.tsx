@@ -6,6 +6,8 @@ import { ThemeProvider } from "features/ThemeSwitcher";
 const container = document.getElementById("root");
 const root = createRoot(container!);
 
+import "shared/config/i18n/i18n";
+
 root.render(
   <BrowserRouter>
     <ThemeProvider>
