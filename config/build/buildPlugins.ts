@@ -1,10 +1,11 @@
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import {IBuildOptions, IBuildPaths} from "./types/config";
+import { IBuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export function buildPlugins({
-  paths, mode
+  paths,
+  mode,
 }: IBuildOptions): webpack.WebpackPluginInstance[] {
   return [
     new webpack.ProgressPlugin(), // Плагин для отображения прогресса webpack сборки
@@ -21,7 +22,7 @@ export function buildPlugins({
       chunkFilename: "css/[name].[contenthash:8].css",
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: JSON.stringify(mode === "development")
-    })
+      __IS_DEV__: JSON.stringify(mode === "development"),
+    }),
   ];
 }

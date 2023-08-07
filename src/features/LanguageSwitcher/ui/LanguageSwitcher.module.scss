@@ -1,0 +1,75 @@
+.LanguageSwitcher {
+  height: 35px;
+  max-width: 70px;
+  position: relative;
+  overflow: hidden;
+  min-height: 35px;
+  border-radius: 100px;
+}
+
+.checkbox {
+  height: 0;
+  width: 0;
+  position: absolute;
+
+  &:checked {
+    & + .button:after {
+      left: calc(100% - 5px);
+      transform: translateX(-100%);
+    }
+
+    & ~ .off {
+      color: var(--bg-color);
+    }
+    & ~ .on {
+      color: var(--primary-accent-color);
+    }
+  }
+}
+
+.button {
+  cursor: pointer;
+  width: 70px;
+  height: 35px;
+  background: var(--primary-accent-color);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  transition: var(--transition);
+  overflow: hidden;
+  min-height: 35px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 25px;
+    height: 70%;
+    border-radius: 50px;
+    transition: var(--transition);
+    background-color: var(--bg-color);
+    z-index: 1;
+  }
+}
+
+.languageName {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9;
+  font-weight: bold;
+  width: 50%;
+  text-align: center;
+  pointer-events: none;
+
+  &.off {
+    left: 0;
+    color: var(--primary-accent-color);
+  }
+
+  &.on {
+    right: 0;
+    color: var(--bg-color);
+  }
+}
