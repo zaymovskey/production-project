@@ -1,10 +1,10 @@
-import { classNames } from "shared/lib/ClassNames/classNames";
-import cls from "./Button.module.scss";
+import { classNames } from 'shared/lib/ClassNames/classNames'
+import cls from './Button.module.scss'
 
 interface ButtonProps {
-  className?: string;
+  className?: string
 }
 
 export const Button = ({ className }: ButtonProps) => {
-  return <button className={classNames(cls.Button, {}, [className])}></button>;
-};
+  return <button className={classNames(cls.Button, {}, [className])}></button>
+}

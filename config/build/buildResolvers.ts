@@ -1,12 +1,12 @@
-import webpack from "webpack";
-import { IBuildOptions } from "./types/config";
+import type webpack from 'webpack'
+import { type IBuildOptions } from './types/config'
 
-export function buildResolvers(option: IBuildOptions): webpack.ResolveOptions {
+export function buildResolvers (option: IBuildOptions): webpack.ResolveOptions {
   return {
-    extensions: [".tsx", ".ts", ".js"], // Расширения файлов для которых при импорте мы не будем писать расширения
+    extensions: ['.tsx', '.ts', '.js'], // Расширения файлов для которых при импорте мы не будем писать расширения
     preferAbsolute: true,
-    modules: [option.paths.src, "node_modules"],
-    mainFiles: ["index"], // Главный файл, типа апи из которого импортируется вся хуйня
-    alias: {},
-  };
+    modules: [option.paths.src, 'node_modules'],
+    mainFiles: ['index'], // Главный файл, типа апи из которого импортируется вся хуйня
+    alias: {}
+  }
 }

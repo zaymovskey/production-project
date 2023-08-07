@@ -1,29 +1,29 @@
-import webpack from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { IBuildOptions } from "./types/config";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import webpack from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { type IBuildOptions } from './types/config'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
-export function buildPlugins({
+export function buildPlugins ({
   paths,
-  mode,
+  mode
 }: IBuildOptions): webpack.WebpackPluginInstance[] {
   return [
     new webpack.ProgressPlugin(), // Плагин для отображения прогресса webpack сборки
     new HtmlWebpackPlugin({
       // Упрощает создание файлов HTML и может автоматически вставлять модули js в наш
       // основной шаблон HTML
-      template: paths.html, // index.html будет использоваться, как шаблон, в него
+      template: paths.html // index.html будет использоваться, как шаблон, в него
       // будут встраиваться скрипты
     }),
     new MiniCssExtractPlugin({
       // Этот плагин извлекает CSS в отдельные файлы. Он создает файл CSS для каждого
       // файла JS, который содержит CSS. Без него css будет в бандле js
-      filename: "css/[name].[contenthash:8].css",
-      chunkFilename: "css/[name].[contenthash:8].css",
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new webpack.DefinePlugin({ // Глобальные переменные
-      __IS_DEV__: JSON.stringify(mode === "development"),
+      _IS_DEV_: JSON.stringify(mode === 'development')
     }),
-    new webpack.HotModuleReplacementPlugin(), // Обновление приложения при изменении кода без обновления страницы
-  ];
+    new webpack.HotModuleReplacementPlugin() // Обновление приложения при изменении кода без обновления страницы
+  ]
 }

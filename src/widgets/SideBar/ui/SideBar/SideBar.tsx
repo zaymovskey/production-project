@@ -1,21 +1,21 @@
-import { classNames } from "shared/lib/ClassNames/classNames";
-import cls from "./SideBar.module.scss";
-import React, { useState } from "react";
-import { ThemeSwitcher } from "features/ThemeSwitcher";
-import { Hamburger } from "shared/ui/Hamburger/Hamburger";
-import {LanguageSwitcher} from "features/LanguageSwitcher/ui/LanguageSwitcher";
+import { classNames } from 'shared/lib/ClassNames/classNames'
+import cls from './SideBar.module.scss'
+import React, { useState } from 'react'
+import { ThemeSwitcher } from 'features/ThemeSwitcher'
+import { Hamburger } from 'shared/ui/Hamburger/Hamburger'
+import { LanguageSwitcher } from 'features/LanguageSwitcher/ui/LanguageSwitcher'
 
 interface SideBarProps {
-  className?: string;
+  className?: string
 }
 
 export const SideBar = ({ className }: SideBarProps) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false)
 
   return (
     <div
       className={classNames(cls.SideBar, { [cls.active]: active }, [
-        className,
+        className
       ])}
     >
       <div className={cls.header}>
@@ -27,5 +27,5 @@ export const SideBar = ({ className }: SideBarProps) => {
         <ThemeSwitcher />
       </div>
     </div>
-  );
-};
+  )
+}

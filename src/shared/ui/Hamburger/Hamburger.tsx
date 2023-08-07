@@ -1,10 +1,10 @@
-import { classNames } from "shared/lib/ClassNames/classNames";
-import cls from "./Hamburger.module.scss";
+import { classNames } from 'shared/lib/ClassNames/classNames'
+import cls from './Hamburger.module.scss'
 
 interface HamburgerProps {
-  active: boolean;
-  setActive: (isActive: boolean) => void;
-  className?: string;
+  active: boolean
+  setActive: (isActive: boolean) => void
+  className?: string
 }
 
 export const Hamburger = ({ className, active, setActive }: HamburgerProps) => {
@@ -12,11 +12,11 @@ export const Hamburger = ({ className, active, setActive }: HamburgerProps) => {
     <svg
       className={classNames(cls.Hamburger, { [cls.active]: active }, [
         className,
-        cls.hamRotate,
+        cls.hamRotate
       ])}
       viewBox="0 0 100 100"
       width="80"
-      onClick={() => setActive(!active)}
+      onClick={() => { setActive(!active) }}
     >
       <path
         className={classNames(cls.line, {}, [cls.top])}
@@ -31,5 +31,5 @@ export const Hamburger = ({ className, active, setActive }: HamburgerProps) => {
         d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"
       />
     </svg>
-  );
-};
+  )
+}

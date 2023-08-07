@@ -1,19 +1,19 @@
-import { classNames } from "shared/lib/ClassNames/classNames";
-import cls from "./LanguageSwitcher.module.scss";
-import { useTranslation } from "react-i18next";
-import React, {useId} from "react";
+import { classNames } from 'shared/lib/ClassNames/classNames'
+import cls from './LanguageSwitcher.module.scss'
+import { useTranslation } from 'react-i18next'
+import React, { useId } from 'react'
 
 interface LanguageSwitcherProps {
-  className?: string;
+  className?: string
 }
 
 export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
-  const { t, i18n } = useTranslation();
-  const checkboxId = useId();
+  const { i18n } = useTranslation()
+  const checkboxId = useId()
 
   const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
-  };
+    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+  }
 
   return (
     <div className={classNames(cls.LanguageSwitcher, {}, [className])}>
@@ -21,7 +21,7 @@ export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
         type="checkbox"
         id={checkboxId}
         className={cls.checkbox}
-        checked={i18n.language === "en"}
+        checked={i18n.language === 'en'}
         onChange={toggleLanguage}
       />
       <label htmlFor={checkboxId} className={cls.button} />
@@ -29,4 +29,4 @@ export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
       <div className={classNames(cls.languageName, {}, [cls.on])}>EN</div>
     </div>
   )
-};
+}

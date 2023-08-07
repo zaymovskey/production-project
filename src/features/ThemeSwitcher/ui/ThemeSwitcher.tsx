@@ -1,20 +1,20 @@
-import { classNames } from "shared/lib/ClassNames/classNames";
-import cls from "./ThemeSwitcher.module.scss";
-import React, { useId } from "react";
-import { useTheme } from "features/ThemeSwitcher/lib/useTheme";
-import { EnumTheme } from "features/ThemeSwitcher/lib/ThemeContext";
+import { classNames } from 'shared/lib/ClassNames/classNames'
+import cls from './ThemeSwitcher.module.scss'
+import React, { type FC, useId } from 'react'
+import { useTheme } from 'features/ThemeSwitcher/lib/useTheme'
+import { EnumTheme } from 'features/ThemeSwitcher/lib/ThemeContext'
 
 interface ThemeSwitcherProps {
-  className?: string;
+  className?: string
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
-  const { theme, toggleTheme } = useTheme();
-  const checkboxId = useId();
+export const ThemeSwitcher: FC = ({ className }: ThemeSwitcherProps) => {
+  const { theme, toggleTheme } = useTheme()
+  const checkboxId = useId()
 
   return (
     <div className={classNames(cls.ThemeSwitcher, {}, [className])}>
-      <input
+       <input
         type="checkbox"
         id={checkboxId}
         className={cls.checkbox}
@@ -32,5 +32,5 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
         <div className={cls.starsItem}>★</div>
       </div>
     </div>
-  );
-};
+  )
+}

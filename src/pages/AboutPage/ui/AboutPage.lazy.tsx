@@ -1,5 +1,5 @@
 // Благодаря lazy loading'у мы подгружаем страницы только, когда они нужны
 
-import { lazy } from "react";
+import { lazy } from 'react'
 
-export const AboutPageLazy = lazy(() => import("./AboutPage"));
+export const AboutPageLazy = lazy(async () => await import('./AboutPage'))
