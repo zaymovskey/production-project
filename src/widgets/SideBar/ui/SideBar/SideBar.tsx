@@ -18,9 +18,14 @@ export const SideBar = ({ className }: SideBarProps) => {
         className,
       ])}
     >
-      <ThemeSwitcher />
-      <LanguageSwitcher />
-      <Hamburger active={active} setActive={setActive} />
+      <div className={cls.header}>
+        <Hamburger active={active} setActive={setActive} />
+      </div>
+
+      <div className={cls.actions}>
+        <LanguageSwitcher />
+        <ThemeSwitcher />
+      </div>
     </div>
   );
 };

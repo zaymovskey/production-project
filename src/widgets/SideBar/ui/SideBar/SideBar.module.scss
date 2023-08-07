@@ -4,8 +4,19 @@
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   transition: var(--transition);
   width: var(--side-bar-width-collapsed);
+  position: relative;
 }
 
 .active {
   width: var(--side-bar-width);
+}
+
+.actions {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  left: 50%;
+  flex-direction: column;
+  row-gap: 10px;
+  transform: translateX(-50%)
 }
