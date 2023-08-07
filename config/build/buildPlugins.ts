@@ -21,8 +21,9 @@ export function buildPlugins({
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].css",
     }),
-    new webpack.DefinePlugin({
+    new webpack.DefinePlugin({ // Глобальные переменные
       __IS_DEV__: JSON.stringify(mode === "development"),
     }),
+    new webpack.HotModuleReplacementPlugin(), // Обновление приложения при изменении кода без обновления страницы
   ];
 }

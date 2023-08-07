@@ -6,5 +6,6 @@ export function buildDevServer(options: IBuildOptions): DevServerConfiguration {
     port: options.port, // Порт
     open: false, // Открывать страницу с нашим приложением в браузере
     historyApiFallback: true, // Проксирование запросов через корневую страницу
+    hot: true,
   };
 }
