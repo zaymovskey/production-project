@@ -16,7 +16,8 @@
     "esModuleInterop": true, // Позволяет работать с пакетами, которые используют common js как с обычными пакетами import/export
     "plugins": [
       { "name": "typescript-plugin-css-modules" }
-    ]
+    ],
+    "strictNullChecks": true,
   },
   "ts-node": {
     "compilerOptions": {

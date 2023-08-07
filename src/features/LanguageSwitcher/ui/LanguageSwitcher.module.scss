@@ -13,7 +13,7 @@
   position: absolute;
 
   &:checked {
-    & + .button:after {
+    & + .button::after {
       left: calc(100% - 5px);
       transform: translateX(-100%);
     }
@@ -21,6 +21,7 @@
     & ~ .off {
       color: var(--bg-color);
     }
+
     & ~ .on {
       color: var(--primary-accent-color);
     }
@@ -39,7 +40,7 @@
   overflow: hidden;
   min-height: 35px;
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
     top: 5px;

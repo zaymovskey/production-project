@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/ClassNames/classNames'
 import cls from './SideBar.module.scss'
-import React, { useState } from 'react'
+import React, { type FC, useState } from 'react'
 import { ThemeSwitcher } from 'features/ThemeSwitcher'
 import { Hamburger } from 'shared/ui/Hamburger/Hamburger'
 import { LanguageSwitcher } from 'features/LanguageSwitcher/ui/LanguageSwitcher'
@@ -9,8 +9,8 @@ interface SideBarProps {
   className?: string
 }
 
-export const SideBar = ({ className }: SideBarProps) => {
-  const [active, setActive] = useState(false)
+export const SideBar: FC = ({ className }: SideBarProps) => {
+  const [active, setActive] = useState<boolean>(false)
 
   return (
     <div

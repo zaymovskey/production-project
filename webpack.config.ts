@@ -2,8 +2,9 @@
 import path from 'path' // Стандарный node.js модуль
 import { buildWebpackConfig } from './config/build/buildWebpackConfig'
 import { type IBuildEnv, type TypeBuildMode, type IBuildPaths } from './config/build/types/config'
+import type webpack from 'webpack'
 
-export default (env: IBuildEnv) => {
+export default (env: IBuildEnv): webpack.Configuration => {
   const paths: IBuildPaths = { // Заранее определяем все пути
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     build: path.resolve(__dirname, 'build'),
@@ -11,8 +12,8 @@ export default (env: IBuildEnv) => {
     src: path.resolve(__dirname, 'src')
   }
 
-  const mode: TypeBuildMode = env.mode || 'development'
-  const port = env.port || 3000
+  const mode: TypeBuildMode = env.mode ?? 'development'
+  const port = env.port ?? 3000
 
   return buildWebpackConfig({
     mode,

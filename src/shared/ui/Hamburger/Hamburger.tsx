@@ -1,13 +1,14 @@
 import { classNames } from 'shared/lib/ClassNames/classNames'
 import cls from './Hamburger.module.scss'
+import { type Dispatch, type FC, type SetStateAction } from 'react'
 
 interface HamburgerProps {
   active: boolean
-  setActive: (isActive: boolean) => void
+  setActive: Dispatch<SetStateAction<boolean>>
   className?: string
 }
 
-export const Hamburger = ({ className, active, setActive }: HamburgerProps) => {
+export const Hamburger: FC<HamburgerProps> = ({ className, active, setActive }) => {
   return (
     <svg
       className={classNames(cls.Hamburger, { [cls.active]: active }, [
@@ -16,7 +17,9 @@ export const Hamburger = ({ className, active, setActive }: HamburgerProps) => {
       ])}
       viewBox="0 0 100 100"
       width="80"
-      onClick={() => { setActive(!active) }}
+      onClick={() => {
+        setActive(!active)
+      }}
     >
       <path
         className={classNames(cls.line, {}, [cls.top])}

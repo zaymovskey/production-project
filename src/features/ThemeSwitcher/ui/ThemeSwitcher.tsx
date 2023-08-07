@@ -14,7 +14,7 @@ export const ThemeSwitcher: FC = ({ className }: ThemeSwitcherProps) => {
 
   return (
     <div className={classNames(cls.ThemeSwitcher, {}, [className])}>
-       <input
+      <input
         type="checkbox"
         id={checkboxId}
         className={cls.checkbox}

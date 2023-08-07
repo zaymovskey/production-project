@@ -1,18 +1,18 @@
 import { classNames } from 'shared/lib/ClassNames/classNames'
 import cls from './LanguageSwitcher.module.scss'
 import { useTranslation } from 'react-i18next'
-import React, { useId } from 'react'
+import React, { type FC, useId } from 'react'
 
 interface LanguageSwitcherProps {
   className?: string
 }
 
-export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
+export const LanguageSwitcher: FC = ({ className }: LanguageSwitcherProps) => {
   const { i18n } = useTranslation()
   const checkboxId = useId()
 
-  const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+  const toggleLanguage = (): void => {
+    void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
   }
 
   return (

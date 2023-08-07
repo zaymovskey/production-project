@@ -3,7 +3,7 @@ type TypeModes = Record<string, boolean | string>
 export function classNames (
   cls: string,
   mods: TypeModes = {},
-  additional: string[] = []
+  additional: (string | undefined)[] = []
 ): string {
   return [
     cls,
