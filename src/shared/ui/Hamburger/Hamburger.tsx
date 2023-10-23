@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/ClassNames/classNames'
-import cls from './Hamburger.module.scss'
-import { type Dispatch, type FC, type SetStateAction } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames';
+import cls from './Hamburger.module.scss';
+import { type Dispatch, type FC, type SetStateAction } from 'react';
 
 interface HamburgerProps {
   active: boolean
@@ -18,7 +18,7 @@ export const Hamburger: FC<HamburgerProps> = ({ className, active, setActive }) 
       viewBox="0 0 100 100"
       width="80"
       onClick={() => {
-        setActive(!active)
+        setActive(!active);
       }}
     >
       <path
@@ -34,5 +34,5 @@ export const Hamburger: FC<HamburgerProps> = ({ className, active, setActive }) 
         d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"
       />
     </svg>
-  )
-}
+  );
+};

@@ -1,12 +1,12 @@
-import { type IBuildOptions } from './types/config'
-import type webpack from 'webpack'
-import { buildPlugins } from './buildPlugins'
-import { buildLoaders } from './buildLoaders'
-import { buildResolvers } from './buildResolvers'
-import { buildDevServer } from './buildDevServer'
+import { type IBuildOptions } from './types/config';
+import type webpack from 'webpack';
+import { buildPlugins } from './buildPlugins';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig (options: IBuildOptions): webpack.Configuration {
-  const { paths, mode } = options
+  const { paths, mode } = options;
 
   return {
     mode, // development/production. При production webpack минифицирует код (убирает комменты и т.д)
@@ -32,5 +32,5 @@ export function buildWebpackConfig (options: IBuildOptions): webpack.Configurati
     // (bundle.js) и один из исходных файлов содержит ошибку, трассировка стека будет указывать на bundle.js. Это не
     // всегда полезно, поскольку вы, вероятно, хотите точно знать, из какого исходного файла возникла ошибка.
     devServer: mode === 'development' ? buildDevServer(options) : undefined // Настройки сервера разработки
-  }
+  };
 }

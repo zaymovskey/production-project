@@ -2,4 +2,4 @@
 declare module '*.module.css';
 declare module '*.module.scss';
 
-declare const _IS_DEV_: boolean
+declare const _IS_DEV_: boolean;

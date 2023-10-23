@@ -1,7 +1,7 @@
-import webpack from 'webpack'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { type IBuildOptions } from './types/config'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { type IBuildOptions } from './types/config';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export function buildPlugins ({
   paths,
@@ -25,5 +25,5 @@ export function buildPlugins ({
       _IS_DEV_: JSON.stringify(mode === 'development')
     }),
     new webpack.HotModuleReplacementPlugin() // Обновление приложения при изменении кода без обновления страницы
-  ]
+  ];
 }

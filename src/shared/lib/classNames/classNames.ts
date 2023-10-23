@@ -1,4 +1,4 @@
-type TypeModes = Record<string, boolean | string>
+type TypeModes = Record<string, boolean | string>;
 
 export function classNames (
   cls: string,
@@ -13,5 +13,5 @@ export function classNames (
       .map(([key]) => key)
   ]
     .join(' ')
-    .replace(/\s+$/, '')
+    .replace(/\s+$/, '');
 }

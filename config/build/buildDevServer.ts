@@ -1,5 +1,5 @@
-import { type IBuildOptions } from './types/config'
-import type { Configuration as DevServerConfiguration } from 'webpack-dev-server'
+import { type IBuildOptions } from './types/config';
+import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 
 export function buildDevServer (options: IBuildOptions): DevServerConfiguration {
   return {
@@ -7,5 +7,5 @@ export function buildDevServer (options: IBuildOptions): DevServerConfiguration 
     open: false, // Открывать страницу с нашим приложением в браузере
     historyApiFallback: true, // Проксирование запросов через корневую страницу
     hot: true
-  }
+  };
 }

@@ -5,7 +5,8 @@
     },
     "extends": [
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:i18next/recommended"
     ],
     "settings": {
         "react": {
@@ -23,12 +24,9 @@
         "i18next"
     ],
     "rules": {
-//        "@typescript-eslint/no-unused-vars": "warn",
-//        "@typescript-eslint/explicit-function-return-type": "off",
-//        "@typescript-eslint/strict-boolean-expressions": "off",
-//        "@typescript-eslint/prefer-nullish-coalescing": "off",
-//        "@typescript-eslint/no-floating-promises": "off",
         "react/react-in-jsx-scope": "off",
-        "@typescript-eslint/array-type": "off"
+        "@typescript-eslint/array-type": "off",
+        "@typescript-eslint/semi": [2, "always"],
+        "semi": [2, "always"]
     }
 }

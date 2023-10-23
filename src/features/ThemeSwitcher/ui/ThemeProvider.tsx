@@ -1,10 +1,10 @@
 // Провайдер нужен для глобального доступа
-import React, { type FC, useMemo, useState } from 'react'
+import React, { type FC, useMemo, useState } from 'react';
 import {
   LOCAL_STORAGE_THEME_KEY,
   EnumTheme,
   ThemeContext
-} from 'features/ThemeSwitcher/lib/ThemeContext'
+} from 'features/ThemeSwitcher/lib/ThemeContext';
 
 interface IParentCompProps {
   children?: React.ReactNode
@@ -12,10 +12,10 @@ interface IParentCompProps {
 
 const defaultTheme =
   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY)) as EnumTheme ??
-  EnumTheme.LIGHT
+  EnumTheme.LIGHT;
 
-const ThemeProvider: FC = ({ children }: IParentCompProps) => {
-  const [theme, setTheme] = useState<EnumTheme>(defaultTheme)
+const ThemeProvider: FC<IParentCompProps> = ({ children }) => {
+  const [theme, setTheme] = useState<EnumTheme>(defaultTheme);
 
   const defaultProps = useMemo(
     () => ({
@@ -23,13 +23,13 @@ const ThemeProvider: FC = ({ children }: IParentCompProps) => {
       setTheme
     }),
     [theme]
-  )
+  );
 
   return (
     <ThemeContext.Provider value={defaultProps}>
       {children}
     </ThemeContext.Provider>
-  )
-}
+  );
+};
 
-export default ThemeProvider
+export default ThemeProvider;

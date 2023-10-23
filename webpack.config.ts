@@ -1,8 +1,8 @@
 // Команда для запуска сборки: npm run build (в файле package.json должно быть "build": "webpack" в поле "scripts"
-import path from 'path' // Стандарный node.js модуль
-import { buildWebpackConfig } from './config/build/buildWebpackConfig'
-import { type IBuildEnv, type TypeBuildMode, type IBuildPaths } from './config/build/types/config'
-import type webpack from 'webpack'
+import path from 'path'; // Стандарный node.js модуль
+import { buildWebpackConfig } from './config/build/buildWebpackConfig';
+import { type IBuildEnv, type TypeBuildMode, type IBuildPaths } from './config/build/types/config';
+import type webpack from 'webpack';
 
 export default (env: IBuildEnv): webpack.Configuration => {
   const paths: IBuildPaths = { // Заранее определяем все пути
@@ -10,14 +10,14 @@ export default (env: IBuildEnv): webpack.Configuration => {
     build: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     src: path.resolve(__dirname, 'src')
-  }
+  };
 
-  const mode: TypeBuildMode = env.mode ?? 'development'
-  const port = env.port ?? 3000
+  const mode: TypeBuildMode = env.mode ?? 'development';
+  const port = env.port ?? 3000;
 
   return buildWebpackConfig({
     mode,
     paths,
     port
-  })
-}
+  });
+};
