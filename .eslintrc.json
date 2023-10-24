@@ -27,6 +27,16 @@
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/array-type": "off",
         "@typescript-eslint/semi": [2, "always"],
-        "semi": [2, "always"]
+        "semi": [2, "always"],
+        "@typescript-eslint/member-delimiter-style": ["error", {
+            "multiline": {
+                "delimiter": "semi",
+                "requireLast": true
+            },
+            "singleline": {
+                "delimiter": "semi",
+                "requireLast": false
+            }
+        }]
     }
 }

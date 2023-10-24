@@ -6,7 +6,7 @@ import { Hamburger } from 'shared/ui/Hamburger/Hamburger';
 import { LanguageSwitcher } from 'features/LanguageSwitcher/ui/LanguageSwitcher';
 
 interface SideBarProps {
-  className?: string
+  className?: string;
 }
 
 export const SideBar: FC = ({ className }: SideBarProps) => {

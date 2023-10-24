@@ -7,7 +7,7 @@ import {
 } from 'features/ThemeSwitcher/lib/ThemeContext';
 
 interface IParentCompProps {
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 const defaultTheme =

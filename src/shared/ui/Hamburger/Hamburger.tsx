@@ -3,9 +3,9 @@ import cls from './Hamburger.module.scss';
 import { type Dispatch, type FC, type SetStateAction } from 'react';
 
 interface HamburgerProps {
-  active: boolean
-  setActive: Dispatch<SetStateAction<boolean>>
-  className?: string
+  active: boolean;
+  setActive: Dispatch<SetStateAction<boolean>>;
+  className?: string;
 }
 
 export const Hamburger: FC<HamburgerProps> = ({ className, active, setActive }) => {

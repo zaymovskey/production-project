@@ -5,7 +5,7 @@ import { useTheme } from 'features/ThemeSwitcher/lib/useTheme';
 import { EnumTheme } from 'features/ThemeSwitcher/lib/ThemeContext';
 
 interface ThemeSwitcherProps {
-  className?: string
+  className?: string;
 }
 
 export const ThemeSwitcher: FC = ({ className }: ThemeSwitcherProps) => {

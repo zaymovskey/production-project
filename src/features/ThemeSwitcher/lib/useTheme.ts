@@ -6,8 +6,8 @@ import {
 import { useContext } from 'react';
 
 interface IUseThemeResult {
-  theme: EnumTheme
-  toggleTheme: () => void
+  theme: EnumTheme;
+  toggleTheme: () => void;
 }
 
 export function useTheme (): IUseThemeResult {

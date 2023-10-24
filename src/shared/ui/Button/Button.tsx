@@ -3,7 +3,7 @@ import cls from './Button.module.scss';
 import { type FC } from 'react';
 
 interface ButtonProps {
-  className?: string
+  className?: string;
 }
 
 export const Button: FC<ButtonProps> = ({ className }) => {

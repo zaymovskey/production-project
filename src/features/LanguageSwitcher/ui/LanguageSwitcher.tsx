@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import React, { type FC, useId } from 'react';
 
 interface LanguageSwitcherProps {
-  className?: string
+  className?: string;
 }
 
 export const LanguageSwitcher: FC = ({ className }: LanguageSwitcherProps) => {

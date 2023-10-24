@@ -6,7 +6,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
 
 interface NavbarProps {
-  className?: string
+  className?: string;
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
