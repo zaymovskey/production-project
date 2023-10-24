@@ -10,7 +10,7 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
-  const { t } = useTranslation('navbar');
+  const { t } = useTranslation('global');
 
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
