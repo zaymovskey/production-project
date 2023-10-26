@@ -1,4 +1,4 @@
-import React, { type FC, Suspense } from 'react';
+import React, { type FC } from 'react';
 import './styles/index.scss';
 import { useTheme } from 'features/ThemeSwitcher/lib/useTheme';
 import { classNames } from 'shared/lib/classNames/classNames';
