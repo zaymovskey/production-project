@@ -11,13 +11,11 @@ const App: FC = () => {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback="">
-        <Navbar />
-        <div className="content-page">
-          <SideBar />
-          <AppRouter />
-        </div>
-      </Suspense>
+      <Navbar />
+      <div className="content-page">
+        <SideBar />
+        <AppRouter />
+      </div>
     </div>
   );
 };
