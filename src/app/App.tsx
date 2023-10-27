@@ -5,7 +5,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/AppRouter';
 import { Navbar } from 'widgets/Navbar';
 import { SideBar } from 'widgets/SideBar';
-import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 
 const App: FC = () => {
   const { theme } = useTheme();
@@ -15,9 +14,7 @@ const App: FC = () => {
       <Navbar />
       <div className="content-page">
         <SideBar />
-        <ErrorBoundary>
-          <AppRouter />
-        </ErrorBoundary>
+        <AppRouter />
       </div>
     </div>
   );
