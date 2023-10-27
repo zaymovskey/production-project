@@ -1,10 +1,11 @@
 // Провайдер нужен для глобального доступа
 import React, { type FC, useMemo, useState } from 'react';
 import {
-  LOCAL_STORAGE_THEME_KEY,
-  EnumTheme,
+  EnumTheme, LOCAL_STORAGE_THEME_KEY,
   ThemeContext
 } from 'app/providers/ThemeProvider';
+
+// import { LOCAL_STORAGE_THEME_KEY } from 'app/providers/ThemeProvider/lib/ThemeContext';
 
 interface IParentCompProps {
   children?: React.ReactNode;

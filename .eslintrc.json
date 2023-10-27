@@ -24,6 +24,11 @@
         "i18next"
     ],
     "rules": {
+        "max-len": ["error", {
+            "code": 100,
+            "ignoreComments": true,
+            "ignoreStrings": true
+        }],
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/array-type": "off",
         "@typescript-eslint/semi": [2, "always"],

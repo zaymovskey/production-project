@@ -11,10 +11,7 @@ interface HamburgerProps {
 export const Hamburger: FC<HamburgerProps> = ({ className, active, setActive }) => {
   return (
     <svg
-      className={classNames(cls.Hamburger, { [cls.active]: active }, [
-        className,
-        cls.hamRotate
-      ])}
+      className={classNames(cls.Hamburger, { [cls.active]: active }, [className])}
       viewBox="0 0 100 100"
       width="80"
       onClick={() => {
