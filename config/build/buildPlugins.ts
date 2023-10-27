@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { type IBuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export function buildPlugins ({
   paths,
@@ -24,6 +25,9 @@ export function buildPlugins ({
     new webpack.DefinePlugin({ // Глобальные переменные
       _IS_DEV_: JSON.stringify(mode === 'development')
     }),
-    new webpack.HotModuleReplacementPlugin() // Обновление приложения при изменении кода без обновления страницы
+    new webpack.HotModuleReplacementPlugin(), // Обновление приложения при изменении кода без обновления страницы
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false
+    })
   ];
 }
