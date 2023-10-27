@@ -6,5 +6,7 @@
   height: var(--navbar-height);
   background: var(--bg-color);
   transition: var(--transition);
+  position: relative;
+  z-index: 1;
 }
 
