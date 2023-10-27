@@ -4,7 +4,7 @@ import {
   LOCAL_STORAGE_THEME_KEY,
   EnumTheme,
   ThemeContext
-} from 'app/providers/ThemeProvider/ThemeContext';
+} from 'app/providers/ThemeProvider';
 
 interface IParentCompProps {
   children?: React.ReactNode;
