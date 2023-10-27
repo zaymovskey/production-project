@@ -1,3 +1,9 @@
 .Button {
-
+  background: var(--primary-accent-color);
+  padding: 5px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  color: var(--bg-color);
+  font-weight: bold;
+  transition: var(--transition);
 }
