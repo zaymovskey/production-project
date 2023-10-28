@@ -18,6 +18,7 @@
       { "name": "typescript-plugin-css-modules" }
     ],
     "strictNullChecks": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "ts-node": {
     "compilerOptions": {
