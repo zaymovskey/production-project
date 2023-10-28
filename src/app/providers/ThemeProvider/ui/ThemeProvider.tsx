@@ -15,8 +15,6 @@ const defaultTheme =
   (window.matchMedia('(prefers-color-scheme: light)').matches ? EnumTheme.LIGHT : EnumTheme.DARK);
 
 const ThemeProvider: FC<IParentCompProps> = ({ children }) => {
-  console.log();
-
   const [theme, setTheme] = useState<EnumTheme>(defaultTheme);
 
   const defaultProps = useMemo(
