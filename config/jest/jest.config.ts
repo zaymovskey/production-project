@@ -39,8 +39,14 @@ const config: Config = {
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
   ],
 
+  modulePaths: [
+    '<rootDir>src'
+  ],
+
   // The root directory that Jest should scan for tests and modules within
-  rootDir: '../../'
+  rootDir: '../../',
+
+  setupFilesAfterEnv: ['<rootDir>config/jest/jestSetup.ts']
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,
