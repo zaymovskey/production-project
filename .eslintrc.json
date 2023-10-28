@@ -6,7 +6,8 @@
     "extends": [
         "standard-with-typescript",
         "plugin:react/recommended",
-        "plugin:i18next/recommended"
+        "plugin:i18next/recommended",
+        "plugin:storybook/recommended"
     ],
     "settings": {
         "react": {
@@ -16,7 +17,9 @@
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": ["./tsconfig.json"]
+        "project": [
+            "./tsconfig.json"
+        ]
     },
     "plugins": [
         "react",
@@ -24,24 +27,36 @@
         "i18next"
     ],
     "rules": {
-        "max-len": ["error", {
-            "code": 100,
-            "ignoreComments": true,
-            "ignoreStrings": true
-        }],
+        "max-len": [
+            "error",
+            {
+                "code": 100,
+                "ignoreComments": true,
+                "ignoreStrings": true
+            }
+        ],
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/array-type": "off",
-        "@typescript-eslint/semi": [2, "always"],
-        "semi": [2, "always"],
-        "@typescript-eslint/member-delimiter-style": ["error", {
-            "multiline": {
-                "delimiter": "semi",
-                "requireLast": true
-            },
-            "singleline": {
-                "delimiter": "semi",
-                "requireLast": false
+        "@typescript-eslint/semi": [
+            2,
+            "always"
+        ],
+        "semi": [
+            2,
+            "always"
+        ],
+        "@typescript-eslint/member-delimiter-style": [
+            "error",
+            {
+                "multiline": {
+                    "delimiter": "semi",
+                    "requireLast": true
+                },
+                "singleline": {
+                    "delimiter": "semi",
+                    "requireLast": false
+                }
             }
-        }]
+        ]
     }
 }
