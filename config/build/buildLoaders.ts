@@ -16,6 +16,12 @@ export function buildLoaders (options: IBuildOptions): webpack.RuleSetRule[] {
     }
   };
 
+  const svgLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack']
+  };
+
   const typescriptLoader = {
     test: /\.tsx?$/, // регулярка, указывающая, что файлы с таким расширением надо пропустить через этот лоадер
     use: 'ts-loader', // Имя лоадера
@@ -45,5 +51,5 @@ export function buildLoaders (options: IBuildOptions): webpack.RuleSetRule[] {
     ]
   };
 
-  return [babelLoader, typescriptLoader, cssLoader];
+  return [babelLoader, typescriptLoader, cssLoader, svgLoader];
 }

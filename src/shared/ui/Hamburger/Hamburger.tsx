@@ -11,6 +11,7 @@ interface HamburgerProps {
 export const Hamburger: FC<HamburgerProps> = ({ className, active, setActive }) => {
   return (
     <svg
+      data-testid='sidebar-toggle'
       className={classNames(cls.Hamburger, { [cls.active]: active }, [className])}
       viewBox="0 0 100 100"
       width="80"

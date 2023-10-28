@@ -28,6 +28,6 @@
   "include": [
     "./src/",
     "./.eslintrc.json",
-    "./config/jest/jestSetup.ts"
+    "./config/"
   ]
 }
