@@ -19,6 +19,13 @@
       stroke-dashoffset: -64px;
     }
   }
+
+  &:hover {
+    .line {
+      transition: var(--transition);
+      stroke: var(--primary-accent-color-hover);
+    }
+  }
 }
 
 .line {

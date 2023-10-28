@@ -6,4 +6,8 @@
   color: var(--bg-color);
   font-weight: bold;
   transition: var(--transition);
+
+  &:hover {
+    background: var(--primary-accent-color-hover);
+  }
 }

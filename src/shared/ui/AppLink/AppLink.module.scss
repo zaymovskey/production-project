@@ -1,6 +1,11 @@
 .AppLink {
   padding: 10px;
   font-weight: bold;
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--primary-accent-color-hover);
+  }
 }
 
 .primary {
