@@ -2,14 +2,25 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 import React, { type ButtonHTMLAttributes, type FC } from 'react';
 
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
+export enum EnumButtonTheme {
+  FILLED = 'filled',
+  CONTOUR = 'contour',
 }
 
-export const Button: FC<IButtonProps> = ({ className, children, ...otherProps }) => {
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  theme?: EnumButtonTheme;
+}
+
+export const Button: FC<IButtonProps> = ({
+  className,
+  children,
+  theme = EnumButtonTheme.FILLED,
+  ...otherProps
+}) => {
   return (
     <button
-      className={classNames(cls.Button, {}, [className])}
+      className={classNames(cls.Button, {}, [className, cls[theme]])}
       {...otherProps}
     >
       {children}

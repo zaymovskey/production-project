@@ -1,13 +1,26 @@
 .Button {
-  background: var(--primary-accent-color);
   padding: 5px 20px;
   border-radius: var(--border-radius);
   cursor: pointer;
-  color: var(--bg-color);
   font-weight: bold;
   transition: var(--transition);
+}
+
+.filled {
+  background: var(--primary-accent-color);
+  color: var(--bg-color);
 
   &:hover {
     background: var(--primary-accent-color-hover);
+  }
+}
+
+.contour {
+  color: var(--primary-accent-color);
+  box-shadow: inset 0 0 0 2px var(--primary-accent-color);
+
+  &:hover {
+    color: var(--bg-color);
+    background: var(--primary-accent-color);
   }
 }
