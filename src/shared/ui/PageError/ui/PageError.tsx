@@ -4,11 +4,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './PageError.module.scss';
 import { Button } from 'shared/ui/Button/Button';
 
-interface PageErrorProps {
+interface IPageErrorProps {
   className?: string;
 }
 
-export const PageError: FC = ({ className }: PageErrorProps) => {
+export const PageError: FC = ({ className }: IPageErrorProps) => {
   const { t } = useTranslation();
 
   const reloadPage = (): void => {

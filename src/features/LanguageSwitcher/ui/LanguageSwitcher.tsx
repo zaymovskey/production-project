@@ -3,11 +3,11 @@ import cls from './LanguageSwitcher.module.scss';
 import { useTranslation } from 'react-i18next';
 import React, { type FC, useId } from 'react';
 
-interface LanguageSwitcherProps {
+interface ILanguageSwitcherProps {
   className?: string;
 }
 
-export const LanguageSwitcher: FC = ({ className }: LanguageSwitcherProps) => {
+export const LanguageSwitcher: FC = ({ className }: ILanguageSwitcherProps) => {
   const { i18n } = useTranslation();
   const checkboxId = useId();
 

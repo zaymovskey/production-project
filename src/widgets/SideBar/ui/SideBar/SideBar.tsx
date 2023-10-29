@@ -7,11 +7,11 @@ import { LanguageSwitcher } from 'features/LanguageSwitcher/ui/LanguageSwitcher'
 
 import ReactLogo from 'shared/assets/icons/react-16-svgrepo-com.svg';
 
-interface SideBarProps {
+interface ISideBarProps {
   className?: string;
 }
 
-export const SideBar: FC = ({ className }: SideBarProps) => {
+export const SideBar: FC = ({ className }: ISideBarProps) => {
   const [active, setActive] = useState<boolean>(false);
 
   return (

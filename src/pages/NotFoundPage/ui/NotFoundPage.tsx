@@ -3,11 +3,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './NotFoundPage.module.scss';
 import { useTranslation } from 'react-i18next';
 
-interface NotFoundPageProps {
+interface INotFoundPageProps {
   className?: string;
 }
 
-export const NotFoundPage: FC = ({ className }: NotFoundPageProps) => {
+export const NotFoundPage: FC = ({ className }: INotFoundPageProps) => {
   const { t } = useTranslation();
 
   return (

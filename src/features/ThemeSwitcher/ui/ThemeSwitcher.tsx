@@ -4,11 +4,11 @@ import React, { type FC, useId } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { EnumTheme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 
-interface ThemeSwitcherProps {
+interface IThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher: FC = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher: FC = ({ className }: IThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
   const checkboxId = useId();
 
