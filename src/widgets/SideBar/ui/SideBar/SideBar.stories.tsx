@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { SideBar } from './SideBar';
+import { getThemeDecorator } from 'shared/config/storybook/themeDecorator';
+import { EnumTheme } from 'app/providers/ThemeProvider';
 
 const meta = {
   title: 'widgets/SideBar',
@@ -11,8 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FilledLight: Story = {
-  args: {
+export const Light: Story = {};
 
-  }
-};
+export const Dark: Story = {};
+Dark.decorators = [getThemeDecorator(EnumTheme.DARK)];

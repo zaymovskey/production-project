@@ -5,8 +5,6 @@ import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { Hamburger } from 'shared/ui/Hamburger/Hamburger';
 import { LanguageSwitcher } from 'features/LanguageSwitcher/ui/LanguageSwitcher';
 
-import ReactLogo from 'shared/assets/icons/react-16-svgrepo-com.svg';
-
 interface ISideBarProps {
   className?: string;
 }
@@ -27,8 +25,6 @@ export const SideBar: FC = ({ className }: ISideBarProps) => {
           setActive={setActive}
         />
       </div>
-
-      <ReactLogo style={{ height: 50, width: 50 }}/>
 
       <div className={cls.actions}>
         <LanguageSwitcher />
