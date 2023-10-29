@@ -1,6 +1,7 @@
 import type webpack from 'webpack';
 import { type IBuildOptions } from './types/config';
 import { buildScssLoader } from './loaders/buildScssLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 
 export function buildLoaders (options: IBuildOptions): webpack.RuleSetRule[] {
   // Порядок лоадеров в списке имеет значение, поэтому выносим их в отдельные переменные и укладываем в список
@@ -16,11 +17,7 @@ export function buildLoaders (options: IBuildOptions): webpack.RuleSetRule[] {
     }
   };
 
-  const svgLoader = {
-    test: /\.svg$/i,
-    issuer: /\.[jt]sx?$/,
-    use: ['@svgr/webpack']
-  };
+  const svgLoader = buildSvgLoader();
 
   const typescriptLoader = {
     test: /\.tsx?$/, // регулярка, указывающая, что файлы с таким расширением надо пропустить через этот лоадер

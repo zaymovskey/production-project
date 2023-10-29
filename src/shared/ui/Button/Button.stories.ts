@@ -5,7 +5,7 @@ import { getThemeDecorator } from 'shared/config/storybook/themeDecorator';
 import { EnumTheme } from 'app/providers/ThemeProvider';
 
 const meta = {
-  title: 'Example/Button',
+  title: 'shared/Button',
   component: Button,
   tags: ['autodocs']
 } satisfies Meta<typeof Button>;
