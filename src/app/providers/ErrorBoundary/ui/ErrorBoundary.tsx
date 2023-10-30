@@ -1,5 +1,5 @@
 import React, { Component, type ErrorInfo, type ReactNode } from 'react';
-import { PageError } from 'shared/ui/PageError';
+import { PageError } from 'shared/ui/PageError/PageError';
 
 interface IErrorBoundaryProps {
   children: ReactNode;
