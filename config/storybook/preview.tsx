@@ -1,8 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import i18n from 'shared/config/i18n/i18n';
 import type { Preview } from '@storybook/react';
 import '../../src/app/styles/index.scss';
-import i18n from 'shared/config/i18n/i18n';
-import { getThemeDecorator } from 'shared/config/storybook/themeDecorator';
-import { EnumTheme } from 'app/providers/ThemeProvider';
+import { themeDecorator } from 'shared/config/storybook/themeDecorator';
 import { routerDecorator } from 'shared/config/storybook/routerDecorator';
 
 const preview: Preview = {
@@ -15,8 +15,23 @@ const preview: Preview = {
       }
     }
   },
+  globalTypes: {
+    theme: {
+      name: 'Theme',
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', icon: 'circlehollow', title: 'light' },
+          { value: 'dark', icon: 'circle', title: 'dark' }
+        ],
+        showName: true
+      }
+    }
+  },
   decorators: [
-    getThemeDecorator(EnumTheme.LIGHT),
+    themeDecorator,
     routerDecorator
   ]
 };

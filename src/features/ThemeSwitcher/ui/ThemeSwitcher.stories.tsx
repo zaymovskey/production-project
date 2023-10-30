@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Navbar } from './Navbar';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 const meta = {
-  title: 'widgets/Navbar',
-  component: Navbar,
+  title: 'features/ThemeSwitcher',
+  component: ThemeSwitcher,
   tags: ['autodocs']
-} satisfies Meta<typeof Navbar>;
+} satisfies Meta<typeof ThemeSwitcher>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

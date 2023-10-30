@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import { Button, EnumButtonTheme } from './Button';
-import { getThemeDecorator } from 'shared/config/storybook/themeDecorator';
-import { EnumTheme } from 'app/providers/ThemeProvider';
 
 const meta = {
   title: 'shared/Button',
@@ -13,32 +10,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FilledLight: Story = {
+export const Filled: Story = {
   args: {
     children: 'Test',
     theme: EnumButtonTheme.FILLED
   }
 };
 
-export const FilledDark: Story = {
-  args: {
-    children: 'Test',
-    theme: EnumButtonTheme.FILLED
-  }
-};
-FilledDark.decorators = [getThemeDecorator(EnumTheme.DARK)];
-
-export const ContourLight: Story = {
+export const Contour: Story = {
   args: {
     children: 'Test',
     theme: EnumButtonTheme.CONTOUR
   }
 };
-
-export const ContourDark: Story = {
-  args: {
-    children: 'Test',
-    theme: EnumButtonTheme.CONTOUR
-  }
-};
-ContourDark.decorators = [getThemeDecorator(EnumTheme.DARK)];

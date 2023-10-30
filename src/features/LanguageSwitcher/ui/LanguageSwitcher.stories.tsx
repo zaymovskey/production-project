@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { getThemeDecorator } from 'shared/config/storybook/themeDecorator';
-import { EnumTheme } from 'app/providers/ThemeProvider';
 import { translationsDecorator } from 'shared/config/storybook/translationsDecorator';
 
 const meta = {
@@ -14,15 +12,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
+export const Primary: Story = {
   args: {
     active: false
   }
 };
-
-export const Dark: Story = {
-  args: {
-    active: false
-  }
-};
-Dark.decorators = [getThemeDecorator(EnumTheme.DARK)];

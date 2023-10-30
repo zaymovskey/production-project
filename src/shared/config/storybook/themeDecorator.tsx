@@ -1,11 +1,13 @@
-import { type EnumTheme } from 'app/providers/ThemeProvider';
+import { type EnumTheme, ThemeProvider } from 'app/providers/ThemeProvider';
 import type { Decorator } from '@storybook/react';
 
-export function getThemeDecorator (theme: EnumTheme): Decorator {
-  // eslint-disable-next-line react/display-name
-  return (Story) => (
-    <div className={`app ${theme}`}>
-      <Story />
-    </div>
+export const themeDecorator: Decorator = (Story, context) => {
+  const currentTheme: EnumTheme = context.globals.theme;
+  return (
+    <ThemeProvider>
+      <div className={`app ${currentTheme}`}>
+        <Story />
+      </div>
+    </ThemeProvider>
   );
-}
+};
