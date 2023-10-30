@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react';
 import '../../src/app/styles/index.scss';
 import { getThemeDecorator } from 'shared/config/storybook/themeDecorator';
 import { EnumTheme } from 'app/providers/ThemeProvider';
+import { routerDecorator } from 'shared/config/storybook/routerDecorator';
 
 const preview: Preview = {
   parameters: {
@@ -13,7 +14,10 @@ const preview: Preview = {
       }
     }
   },
-  decorators: [getThemeDecorator(EnumTheme.LIGHT)]
+  decorators: [
+    getThemeDecorator(EnumTheme.LIGHT),
+    routerDecorator
+  ]
 };
 
 export default preview;
