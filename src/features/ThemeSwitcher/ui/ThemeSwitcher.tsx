@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ThemeSwitcher.module.scss';
-import React, { type FC, useId } from 'react';
+import { type FC, useId } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { EnumTheme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 

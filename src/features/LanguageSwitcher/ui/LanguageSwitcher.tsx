@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './LanguageSwitcher.module.scss';
 import { useTranslation } from 'react-i18next';
-import React, { type FC, useId } from 'react';
+import { type FC, useId } from 'react';
 
 interface ILanguageSwitcherProps {
   className?: string;
