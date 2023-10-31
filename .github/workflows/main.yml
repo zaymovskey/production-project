@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
@@ -29,7 +29,5 @@ jobs:
         run: npm run test:unit
       - name: build storybook
         run: npm run storybook:build
-      - name: huy v govne
-        run: npx loki update --reactUri="file:./storybook-static"
       - name: screenshots testing
         run: npm run test:ui:ci
