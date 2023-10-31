@@ -7,7 +7,7 @@ const MainPage: FC = () => {
 
   return (
     <div>
-      {t('Главная')} <Button theme={EnumButtonTheme.CONTOUR}>fdsf</Button><Button>dsaf</Button>
+      {t('Главная')} <Button theme={EnumButtonTheme.CONTOUR}>....</Button><Button>....</Button>
     </div>
   );
 };
