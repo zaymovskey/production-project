@@ -8,7 +8,7 @@ export function buildPlugins ({
   paths,
   mode
 }: IBuildOptions): webpack.WebpackPluginInstance[] {
-  return [
+  const plugins = [
     new webpack.ProgressPlugin(), // Плагин для отображения прогресса webpack сборки
     new HtmlWebpackPlugin({
       // Упрощает создание файлов HTML и может автоматически вставлять модули js в наш
@@ -24,10 +24,15 @@ export function buildPlugins ({
     }),
     new webpack.DefinePlugin({ // Глобальные переменные
       _IS_DEV_: JSON.stringify(mode === 'development')
-    }),
-    new webpack.HotModuleReplacementPlugin(), // Обновление приложения при изменении кода без обновления страницы
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
     })
   ];
+
+  if (mode === 'development') {
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+    plugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: false
+    }));
+  }
+
+  return plugins;
 }
