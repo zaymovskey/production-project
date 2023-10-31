@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Sidebar.module.scss';
 import { type FC, useState } from 'react';
+import cls from './Sidebar.module.scss';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { Hamburger } from 'shared/ui/Hamburger/Hamburger';
 import { LanguageSwitcher } from 'features/LanguageSwitcher/ui/LanguageSwitcher';
