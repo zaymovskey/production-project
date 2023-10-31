@@ -30,4 +30,4 @@ jobs:
       - name: build storybook
         run: storybook:build
       - name: ui testing
-        run: est:ui:ci
+        run: test:ui:ci
