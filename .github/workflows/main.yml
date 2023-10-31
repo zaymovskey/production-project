@@ -27,9 +27,9 @@ jobs:
         run: npm run lint:scss
       - name: unit testing
         run: npm run test:unit
-      - name: huy v govne
-        run: loki update --reactUri="file:./storybook-static"
       - name: build storybook
         run: npm run storybook:build
+      - name: huy v govne
+        run: npx loki update --reactUri="file:./storybook-static"
       - name: screenshots testing
         run: npm run test:ui:ci
