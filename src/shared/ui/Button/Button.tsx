@@ -8,10 +8,10 @@ export enum EnumButtonTheme {
 }
 
 export enum EnumButtonSize {
-  S = 'size_s',
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl'
+  S = 'size-s',
+  M = 'size-m',
+  L = 'size-l',
+  XL = 'size-xl'
 }
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

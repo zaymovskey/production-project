@@ -1,5 +1,5 @@
 // Провайдер нужен для глобального доступа
-import { type FC, useMemo, useState } from 'react';
+import { type FC, type ReactNode, useMemo, useState } from 'react';
 import {
   EnumTheme,
   LOCAL_STORAGE_THEME_KEY,
@@ -7,7 +7,7 @@ import {
 } from 'app/providers/ThemeProvider';
 
 interface IParentCompProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 const defaultTheme =

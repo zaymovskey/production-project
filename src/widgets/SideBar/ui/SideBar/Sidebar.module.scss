@@ -5,10 +5,19 @@
   transition: var(--transition);
   width: var(--side-bar-width-collapsed);
   position: relative;
+
+  .body__itemText {
+    transition: var(--transition);
+    transform: translateY(150%);
+  }
 }
 
 .active {
   width: var(--side-bar-width);
+
+  .body__itemText {
+    transform: translateY(0);
+  }
 }
 
 .actions {
@@ -19,4 +28,48 @@
   flex-direction: column;
   row-gap: 10px;
   transform: translateX(-50%)
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px;
+
+  &__item {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+
+    &:hover {
+      background: var(--bg-color-hover);
+      transition: var(--transition);
+
+      path {
+        fill: var(--primary-accent-color-hover);
+        transition: var(--transition);
+      }
+    }
+
+    &Icon {
+      --icon-size: 40px;
+
+      height: var(--icon-size);
+      width: var(--icon-size);
+
+      svg {
+        height: var(--icon-size);
+        width: var(--icon-size);
+
+        path {
+          fill: var(--primary-accent-color)
+        }
+      }
+    }
+  }
+}
+
+.appLink {
+  display: flex;
+  align-items: center;
+  gap: 8px
 }
