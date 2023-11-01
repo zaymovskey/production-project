@@ -1,22 +1,26 @@
 .Hamburger {
+  height: 80px;
+  width: 80px;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform var(--transition);
   user-select: none;
+  transition: var(--transition);
+  border-radius: 10px;
 
   &.active {
-    transform: rotate(45deg);
+    svg {
+      transform: rotate(45deg);
 
-    & .top {
-      stroke-dashoffset: -64px;
-    }
+      & .top {
+        stroke-dashoffset: -64px;
+      }
 
-    & .middle {
-      transform: rotate(90deg);
-    }
+      & .middle {
+        transform: rotate(90deg);
+      }
 
-    & .bottom {
-      stroke-dashoffset: -64px;
+      & .bottom {
+        stroke-dashoffset: -64px;
+      }
     }
   }
 
@@ -26,6 +30,11 @@
       stroke: var(--primary-accent-color-hover);
     }
   }
+}
+
+svg {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--transition);
 }
 
 .line {
