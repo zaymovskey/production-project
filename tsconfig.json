@@ -29,6 +29,7 @@
     "./src/",
     "./.eslintrc.json",
     "./webpack.config.ts",
-    "./config/"
+    "./config/",
+    "./scripts/"
   ]
 }
