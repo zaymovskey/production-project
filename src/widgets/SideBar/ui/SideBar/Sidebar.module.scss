@@ -71,5 +71,6 @@
 .appLink {
   display: flex;
   align-items: center;
-  gap: 8px
+  gap: 8px;
+  max-height: 60px;
 }
