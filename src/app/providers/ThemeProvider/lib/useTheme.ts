@@ -14,7 +14,6 @@ export function useTheme (): IUseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = (): void => {
-    console.log('huy');
     const newTheme: EnumTheme =
       theme === EnumTheme.LIGHT ? EnumTheme.DARK : EnumTheme.LIGHT;
     setTheme(newTheme);
