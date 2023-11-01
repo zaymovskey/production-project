@@ -15,7 +15,7 @@
     "test:ui": "loki test",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:ui:ok": "loki approve",
-    "storybook": "storybook dev -p 6006 -c ./config/storybook/",
+    "storybook": "storybook dev --no-open -p 6006 -c ./config/storybook/",
     "storybook:build": "storybook build -c ./config/storybook/"
   },
   "keywords": [],

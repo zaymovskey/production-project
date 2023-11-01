@@ -25,8 +25,8 @@ export const LanguageSwitcher: FC = ({ className }: ILanguageSwitcherProps) => {
         onChange={toggleLanguage}
       />
       <label htmlFor={checkboxId} className={cls.button} />
-      <div className={classNames(cls.languageName, {}, [cls.off])}>RU</div>
-      <div className={classNames(cls.languageName, {}, [cls.on])}>EN</div>
+      <div className={classNames(cls.languageName, {}, [cls.off])}>ru</div>
+      <div className={classNames(cls.languageName, {}, [cls.on])}>en</div>
     </div>
   );
 };
