@@ -4,7 +4,6 @@ import { AppLink, EnumAppLinkTheme } from './AppLink';
 const meta = {
   title: 'shared/AppLink',
   component: AppLink,
-  tags: ['autodocs'],
   args: {
     to: '/'
   }

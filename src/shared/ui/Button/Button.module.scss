@@ -1,5 +1,4 @@
 .Button {
-  padding: 5px 20px;
   border-radius: var(--border-radius);
   cursor: pointer;
   font-weight: bold;
@@ -24,3 +23,25 @@
     background: var(--primary-accent-color);
   }
 }
+
+.size_s {
+  font-size: var(--font-size-s);
+  padding: 4px 16px;
+}
+
+.size_m {
+  font-size: var(--font-size-m);
+  padding: 8px 24px;
+}
+
+.size_l {
+  font-size: var(--font-size-l);
+  padding: 12px 32px;
+}
+
+.size_xl {
+  font-size: var(--font-size-xl);
+  padding: 16px 40px;
+}
+
+

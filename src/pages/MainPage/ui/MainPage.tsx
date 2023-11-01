@@ -1,13 +1,19 @@
 import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, EnumButtonTheme } from 'shared/ui/Button/Button';
+import { Button, EnumButtonSize } from 'shared/ui/Button/Button';
 
 const MainPage: FC = () => {
   const { t } = useTranslation('main');
 
   return (
     <div>
-      {t('Главная')} <Button theme={EnumButtonTheme.CONTOUR}>....</Button><Button>....</Button>
+      {t('Главная')}
+      <div>
+        <Button size={EnumButtonSize.S}>....</Button>
+        <Button size={EnumButtonSize.M}>....</Button>
+        <Button size={EnumButtonSize.L}>....</Button>
+        <Button size={EnumButtonSize.XL}>....</Button>
+      </div>
     </div>
   );
 };
