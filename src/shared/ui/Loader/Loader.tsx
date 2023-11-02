@@ -6,7 +6,7 @@ interface ILoaderProps {
   className?: string;
 }
 
-export const Loader: FC = ({ className }: ILoaderProps) => {
+export const Loader: FC<ILoaderProps> = ({ className }) => {
   return (
     <div className={classNames(cls.Loader, {}, [className])}>
       <div></div>

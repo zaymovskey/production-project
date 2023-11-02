@@ -7,7 +7,7 @@ interface INotFoundPageProps {
   className?: string;
 }
 
-const NotFoundPage: FC = ({ className }: INotFoundPageProps) => {
+const NotFoundPage: FC<INotFoundPageProps> = ({ className }) => {
   const { t } = useTranslation();
 
   return (

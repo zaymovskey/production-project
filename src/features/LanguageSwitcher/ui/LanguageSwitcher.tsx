@@ -7,7 +7,7 @@ interface ILanguageSwitcherProps {
   className?: string;
 }
 
-export const LanguageSwitcher: FC = ({ className }: ILanguageSwitcherProps) => {
+export const LanguageSwitcher: FC<ILanguageSwitcherProps> = ({ className }) => {
   const { i18n } = useTranslation();
   const checkboxId = useId();
 

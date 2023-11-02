@@ -14,7 +14,7 @@ interface ISideBarProps {
   className?: string;
 }
 
-export const Sidebar: FC = ({ className }: ISideBarProps) => {
+export const Sidebar: FC<ISideBarProps> = ({ className }) => {
   const { t } = useTranslation();
   const [active, setActive] = useState<boolean>(false);
 

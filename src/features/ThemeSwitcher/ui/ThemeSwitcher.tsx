@@ -8,7 +8,7 @@ interface IThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher: FC = ({ className }: IThemeSwitcherProps) => {
+export const ThemeSwitcher: FC<IThemeSwitcherProps> = ({ className }) => {
   const { theme, toggleTheme } = useTheme();
   const checkboxId = useId();
 
