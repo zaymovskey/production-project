@@ -25,8 +25,10 @@ export const LanguageSwitcher: FC = ({ className }: ILanguageSwitcherProps) => {
         onChange={toggleLanguage}
       />
       <label htmlFor={checkboxId} className={cls.button} />
+      {/* eslint-disable i18next/no-literal-string */}
       <div className={classNames(cls.languageName, {}, [cls.off])}>ru</div>
       <div className={classNames(cls.languageName, {}, [cls.on])}>en</div>
+      {/* eslint-enable i18next/no-literal-string */}
     </div>
   );
 };
