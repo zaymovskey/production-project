@@ -14,9 +14,9 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "loki test",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
-    "test:report": "npm run test:vreport:json && npm run test:vreport:html",
-    "test:vreport:json": "node scripts/generate-visual-json-report.js",
-    "test:vreport:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "test:ui:report": "npm run test:ui:report:json && npm run test:ui:report:html && start ./.loki/report.html",
+    "test:ui:report:json": "ts-node scripts/generateVisualJsonReport.ts",
+    "test:ui:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "test:ui:ok": "loki approve",
     "storybook": "storybook dev --no-open -p 6006 -c ./config/storybook/",
     "storybook:build": "storybook build -c ./config/storybook/"
