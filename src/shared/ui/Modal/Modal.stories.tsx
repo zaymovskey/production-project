@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Modal } from './Modal';
 import { useState } from 'react';
 import { Button } from 'shared/ui/Button/Button';
-import { _Modal } from 'shared/ui/Modal/_Modal';
 
 const meta = {
   title: 'shared/Modal',
@@ -23,13 +22,16 @@ const childrenString = `
 export const Closed: Story = {
   args: {
     isOpen: false,
-    children: childrenString
+    children: childrenString,
+    overlayClose: true
   },
   render: function Redner (args) {
     const [isOpen, setIsOpen] = useState(false);
     return (
       <>
-        <Button onClick={() => { setIsOpen(true); }}>Open modal</Button>
+        <Button onClick={() => {
+          setIsOpen(true);
+        }}>Open modal</Button>
         <Modal {...args} isOpen={isOpen} setIsOpen={setIsOpen}/>
       </>
     );
@@ -43,7 +45,7 @@ export const Opened: Story = {
   },
   render: function Redner (args) {
     return (
-      <_Modal {...args}/>
+      <Modal {...args}/>
     );
   }
 };
