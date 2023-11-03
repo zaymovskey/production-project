@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { translationsDecorator } from 'shared/config/storybook/translationsDecorator';
+import { translationsDecorator } from 'shared/lib/storybook/translationsDecorator';
 import { Sidebar } from './Sidebar';
 
 const meta = {

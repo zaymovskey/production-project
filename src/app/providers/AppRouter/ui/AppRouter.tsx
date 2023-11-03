@@ -1,6 +1,6 @@
 import { type FC, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { RouteConfig } from 'shared/config/routeConfig/routeConfig';
+import { RouteConfig } from 'app/providers/AppRouter';
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
 
 const AppRouter: FC = () => {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { listDecorator } from 'shared/config/storybook/listDecorator';
+import { listDecorator } from 'shared/lib/storybook/listDecorator';
 import { Button, EnumButtonSize, EnumButtonTheme } from './Button';
 
 const meta = {
