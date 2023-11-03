@@ -32,6 +32,14 @@
         "jsx-a11y",
         "react-hooks"
     ],
+    "overrides": [{
+        "files": [
+            "**/src/**/*.{test,stories}.{ts,tsx}"
+        ],
+        "rules": {
+            "i18next/no-literal-string": "off"
+        }
+    }],
     "rules": {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
