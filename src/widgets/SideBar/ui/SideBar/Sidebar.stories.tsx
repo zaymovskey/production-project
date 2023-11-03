@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Sidebar } from './Sidebar';
 import { translationsDecorator } from 'shared/config/storybook/translationsDecorator';
+import { Sidebar } from './Sidebar';
 
 const meta = {
   title: 'widgets/Sidebar',

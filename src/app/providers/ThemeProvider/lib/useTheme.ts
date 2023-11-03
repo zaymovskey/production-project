@@ -1,9 +1,9 @@
+import { useContext } from 'react';
 import {
   EnumTheme,
   LOCAL_STORAGE_THEME_KEY,
   ThemeContext
 } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { useContext } from 'react';
 
 interface IUseThemeResult {
   theme: EnumTheme;

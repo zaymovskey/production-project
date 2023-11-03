@@ -1,8 +1,8 @@
+import { type FC, useId } from 'react';
+import { EnumTheme } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ThemeSwitcher.module.scss';
-import { type FC, useId } from 'react';
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
-import { EnumTheme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 
 interface IThemeSwitcherProps {
   className?: string;
@@ -22,6 +22,7 @@ export const ThemeSwitcher: FC<IThemeSwitcherProps> = ({ className }) => {
         onChange={toggleTheme}
       />
 
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label htmlFor={checkboxId} className={cls.button} />
 
       <div className={cls.cloud} />

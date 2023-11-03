@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, EnumButtonSize, EnumButtonTheme } from './Button';
 import { listDecorator } from 'shared/config/storybook/listDecorator';
+import { Button, EnumButtonSize, EnumButtonTheme } from './Button';
 
 const meta = {
   title: 'shared/Button',

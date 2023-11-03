@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Hamburger } from './Hamburger';
 import { useState } from 'react';
+import { Hamburger } from './Hamburger';
 
 const meta = {
   title: 'shared/Hamburger',

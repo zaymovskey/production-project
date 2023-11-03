@@ -1,5 +1,5 @@
 // Провайдер нужен для глобального доступа
-import { type FC, type ReactNode, useEffect, useMemo, useState } from 'react';
+import { type FC, type ReactNode, useMemo, useState } from 'react';
 import {
   EnumTheme,
   LOCAL_STORAGE_THEME_KEY,

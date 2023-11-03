@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import './styles/index.scss';
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { AppRouter } from 'app/providers/AppRouter';
+import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/SideBar';
 

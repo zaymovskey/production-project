@@ -1,6 +1,6 @@
+import { type Dispatch, type FC, type SetStateAction } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Hamburger.module.scss';
-import { type Dispatch, type FC, type SetStateAction } from 'react';
 
 interface HamburgerProps {
   active: boolean;

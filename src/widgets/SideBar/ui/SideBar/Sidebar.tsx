@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { type FC, useState } from 'react';
-import cls from './Sidebar.module.scss';
-import { ThemeSwitcher } from 'features/ThemeSwitcher';
-import { Hamburger } from 'shared/ui/Hamburger/Hamburger';
-import { LanguageSwitcher } from 'features/LanguageSwitcher/ui/LanguageSwitcher';
-import { AppLink, EnumAppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from 'features/LanguageSwitcher/ui/LanguageSwitcher';
+import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import HomeIcon from 'shared/assets/icons/home.svg';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink, EnumAppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Hamburger } from 'shared/ui/Hamburger/Hamburger';
+import cls from './Sidebar.module.scss';
 
 interface ISideBarProps {
   className?: string;

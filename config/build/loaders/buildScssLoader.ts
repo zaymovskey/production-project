@@ -1,6 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { type TypeBuildMode } from '../types/config';
 import type webpack from 'webpack';
+import { type TypeBuildMode } from '../types/config';
 
 export function buildScssLoader (mode: TypeBuildMode): webpack.RuleSetRule {
   return {

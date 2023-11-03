@@ -1,5 +1,5 @@
-import { ThemeProvider } from 'app/providers/ThemeProvider';
 import type { Decorator } from '@storybook/react';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 
 export const themeDecorator: Decorator = (Story, context) => {
   document.body.className = context.globals.theme;
