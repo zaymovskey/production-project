@@ -1,14 +1,15 @@
-import { type EnumTheme, ThemeProvider } from 'app/providers/ThemeProvider';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 import type { Decorator } from '@storybook/react';
 
 export const themeDecorator: Decorator = (Story, context) => {
-  const currentTheme: EnumTheme = context.globals.theme;
+  document.body.className = context.globals.theme;
   const styles = { padding: 20, minHeight: 'unset' };
+
   return (
-    <ThemeProvider>
-      <div className={`app ${currentTheme}`} style={styles}>
+    <div style={styles} className='app'>
+      <ThemeProvider>
         <Story />
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </div>
   );
 };

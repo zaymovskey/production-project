@@ -13,7 +13,7 @@ const MainPage: FC = () => {
       <div>
         <Button size={EnumButtonSize.S} onClick={() => { setIsOpen(true); }}>....</Button>
       </div>
-      <Modal isOpen={open} setIsOpen={setIsOpen}></Modal>
+      <Modal isOpen={open} setIsOpen={setIsOpen}>fdsafasdffdsa</Modal>
     </div>
   );
 };

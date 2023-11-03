@@ -18,6 +18,7 @@ export function useTheme (): IUseThemeResult {
       theme === EnumTheme.LIGHT ? EnumTheme.DARK : EnumTheme.LIGHT;
     setTheme(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+    document.body.className = newTheme;
   };
 
   return {

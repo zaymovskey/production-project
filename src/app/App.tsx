@@ -1,16 +1,16 @@
 import { type FC } from 'react';
 import './styles/index.scss';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/AppRouter';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/SideBar';
 
 const App: FC = () => {
   const { theme } = useTheme();
+  document.body.className = theme;
 
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <div className='app'>
       <Navbar />
       <div className="content-page">
         <Sidebar />
