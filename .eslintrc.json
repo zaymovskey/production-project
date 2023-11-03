@@ -11,7 +11,8 @@
         "plugin:storybook/recommended",
         "plugin:storybook/recommended",
         "plugin:jsx-a11y/recommended",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        "@feature-sliced"
     ],
     "settings": {
         "react": {
