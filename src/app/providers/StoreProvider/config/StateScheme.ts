@@ -1,7 +1,5 @@
-export interface CounterState {
-  value: number;
-}
+import { type CounterScheme } from 'entities/Counter';
 
 export interface StateScheme {
-  // counter: CounterState;
+  counter: CounterScheme;
 }
