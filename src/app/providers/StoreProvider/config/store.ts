@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
-import { type StateScheme } from 'app/providers/StoreProvider/config/StateScheme';
+import { counterReducer } from 'sfasdf/Counter';
+import { type StateSchema } from './StateSchema';
 
-export function createReduxStore (initialState?: StateScheme): ToolkitStore {
-  return configureStore<StateScheme>({
-    reducer: {},
-    devTools: _IS_DEV_
+export function createReduxStore (initialState?: StateSchema) {
+  return configureStore<StateSchema>({
+    reducer: {
+      counter: counterReducer
+    },
+    devTools: _IS_DEV_,
+    preloadedState: initialState
   });
 }
