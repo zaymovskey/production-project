@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
-import { counterReducer } from 'sfasdf/Counter';
+import { counterReducer } from 'entity/Counter';
 import { type StateScheme } from './StateScheme';
 
 export function createReduxStore (initialState?: StateScheme): ToolkitStore {

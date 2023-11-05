@@ -1,4 +1,4 @@
-import { type CounterScheme } from 'sfasdf/Counter';
+import { type CounterScheme } from 'entity/Counter';
 import { counterReducer, counterActions } from './counterSlice';
 
 describe('counterSlice.test', () => {
