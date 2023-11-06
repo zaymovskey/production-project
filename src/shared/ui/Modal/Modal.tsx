@@ -55,9 +55,9 @@ export const Modal: FC<IModalProps> = ({
   }, [isOpen, onKeyDown]);
 
   return (
-    <div className={classNames(cls.Modal, mods, [className])}>
+    <div className={classNames(cls.Modal, mods)}>
       <div className={cls.overlay} onClick={onOverlayClick}>
-        <div className={cls.content} onClick={onContentClick}>
+        <div className={classNames(cls.content, {}, [className])} onClick={onContentClick}>
           {children}
         </div>
       </div>
