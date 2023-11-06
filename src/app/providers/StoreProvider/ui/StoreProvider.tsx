@@ -9,7 +9,7 @@ interface StoreProviderProps {
   initialState?: DeepPartial<StateScheme>;
 }
 
-export const StoreProvider: FC = (props: StoreProviderProps) => {
+export const StoreProvider = (props: StoreProviderProps): ReactNode => {
   const {
     children,
     initialState

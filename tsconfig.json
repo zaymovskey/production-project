@@ -24,12 +24,5 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  },
-  "include": [
-    "./src/",
-    "./.eslintrc.json",
-    "./webpack.config.ts",
-    "./config/",
-    "./scripts/"
-  ]
+  }
 }

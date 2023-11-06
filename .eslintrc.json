@@ -41,6 +41,7 @@
             "i18next/no-literal-string": "off"
         }
     }],
+    "ignorePatterns": ["json-server/*"],
     "rules": {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
