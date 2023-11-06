@@ -15,7 +15,7 @@ interface ISideBarProps {
 }
 
 export const Sidebar: FC<ISideBarProps> = ({ className }) => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   const [active, setActive] = useState<boolean>(false);
 
   return (
@@ -43,7 +43,7 @@ export const Sidebar: FC<ISideBarProps> = ({ className }) => {
               <HomeIcon/>
             </div>
             <div className={cls.body__itemText}>
-              {/* {t('Главная')} */}
+              {t('Главная')}
             </div>
           </AppLink>
         </div>
@@ -57,7 +57,7 @@ export const Sidebar: FC<ISideBarProps> = ({ className }) => {
               <AboutIcon/>
             </div>
             <div className={cls.body__itemText}>
-              {/* {t('О сайте')} */}
+              {t('О сайте')}
             </div>
           </AppLink>
         </div>

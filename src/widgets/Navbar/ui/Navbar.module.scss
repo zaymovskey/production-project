@@ -8,5 +8,18 @@
   transition: var(--transition);
   position: relative;
   z-index: 1;
+  padding: 0 10px;
+
+  &Item {
+    font-weight: bold;
+  }
+}
+
+.rightSection {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
 }
 

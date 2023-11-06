@@ -29,7 +29,7 @@ export const Modal: FC<IModalProps> = ({
   };
 
   const closeHandler = useCallback((): void => {
-    if (setIsOpen != null) setIsOpen(false);
+    setIsOpen?.(false);
   }, [setIsOpen]);
 
   const onContentClick = (e: MouseEvent): void => {

@@ -1,0 +1,16 @@
+.LoginForm {
+
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  text-align: center;
+  font-size: var(--font-size-xl);
+  margin-bottom: 15px;
+  font-weight: bold;
+}

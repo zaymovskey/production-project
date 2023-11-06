@@ -1,4 +1,4 @@
-import { type CounterScheme } from 'entity/Counter';
-import { type StateScheme } from 'app/providers/StoreProvider';
+import { type ICounterScheme } from 'entity/Counter';
+import { type IStateScheme } from 'app/providers/StoreProvider';
 
-export const getCounter = (state: StateScheme): CounterScheme => state.counter;
+export const getCounter = (state: IStateScheme): ICounterScheme => state.counter;

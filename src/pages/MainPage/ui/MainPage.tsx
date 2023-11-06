@@ -1,5 +1,6 @@
 import { type FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal';
 import { Button, EnumButtonSize } from 'shared/ui/Button/Button';
 import { Modal } from 'shared/ui/Modal/Modal';
 

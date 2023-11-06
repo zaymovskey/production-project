@@ -3,5 +3,8 @@
   "Главная": "Main",
   "Страница не найдена": "Page not found",
   "Произошла ошибка": "There was an error",
-  "Обновить страницу": "Reload page"
+  "Обновить страницу": "Reload page",
+  "Войти": "Login",
+  "Логин": "Login",
+  "Пароль": "Password"
 }

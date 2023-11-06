@@ -25,14 +25,14 @@ export const Button: FC<IButtonProps> = ({
   children,
   theme = EnumButtonTheme.FILLED,
   size = EnumButtonSize.M,
-  ...otherProps
+  ...defaultButtonProps
 }) => {
   const additional: string[] = [cls[theme], cls[size]];
 
   return (
     <button
       className={classNames(cls.Button, {}, [className, ...additional])}
-      {...otherProps}
+      {...defaultButtonProps}
     >
       {children}
     </button>);
