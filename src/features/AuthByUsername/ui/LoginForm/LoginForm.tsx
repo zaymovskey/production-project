@@ -20,9 +20,8 @@ export const LoginForm: FC<ILoginFormProps> = ({ className }) => {
       <div className={cls.inputs}>
         <Input placeholder={t('Логин')} type={'text'}/>
         <Input placeholder={t('Пароль')} type={'password'}/>
-        <Button>{t('Войти')}</Button>
       </div>
-
+      <Button>{t('Войти')}</Button>
     </div>
   );
 };
