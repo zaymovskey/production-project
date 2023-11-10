@@ -4,9 +4,10 @@ import {
   type MouseEvent,
   type ReactNode,
   type SetStateAction, useCallback,
-  useEffect
+  useEffect, useState
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
 export interface IModalProps {
@@ -15,6 +16,7 @@ export interface IModalProps {
   isOpen: boolean;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
   overlayClose?: boolean;
+  lazy?: boolean;
 }
 
 export const Modal: FC<IModalProps> = ({
@@ -55,12 +57,14 @@ export const Modal: FC<IModalProps> = ({
   }, [isOpen, onKeyDown]);
 
   return (
-    <div className={classNames(cls.Modal, mods)}>
-      <div className={cls.overlay} onClick={onOverlayClick}>
-        <div className={classNames(cls.content, {}, [className])} onClick={onContentClick}>
-          {children}
+    <Portal>
+      <div className={classNames(cls.Modal, mods)}>
+        <div className={cls.overlay} onClick={onOverlayClick}>
+          <div className={classNames(cls.content, {}, [className])} onClick={onContentClick}>
+            {children}
+          </div>
         </div>
       </div>
-    </div>
+    </Portal>
   );
 };

@@ -43,7 +43,11 @@ export const Opened: Story = {
     isOpen: true,
     children: childrenString
   },
-  render: function Redner (args) {
+  render: function Redner (args, context) {
+    if (context.viewMode === 'docs') {
+      return <></>;
+    }
+
     return (
       <Modal {...args}/>
     );
