@@ -10,11 +10,11 @@ interface ILoginModalProps extends IModalProps {
 
 export const LoginModal: FC<ILoginModalProps> = ({ className, ...modalProps }) => {
   return (
-    <Modal
-      className={classNames(cls.LoginModal, {}, [className])}
-      {...modalProps}
-    >
-      <LoginForm/>
-    </Modal>
+  <Modal
+    className={classNames(cls.LoginModal, {}, [className])}
+    {...modalProps}
+  >
+    <LoginForm/>
+  </Modal>
   );
 };

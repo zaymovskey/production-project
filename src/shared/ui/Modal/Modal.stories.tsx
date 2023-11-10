@@ -21,9 +21,8 @@ const childrenString = `
 
 export const Closed: Story = {
   args: {
-    isOpen: false,
     children: childrenString,
-    overlayClose: true
+    closeByBackdrop: true
   },
   render: function Redner (args) {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +31,9 @@ export const Closed: Story = {
         <Button onClick={() => {
           setIsOpen(true);
         }}>Open modal</Button>
-        <Modal {...args} isOpen={isOpen} setIsOpen={setIsOpen}/>
+        { isOpen && (
+          <Modal {...args} setShowModal={setIsOpen}/>
+        ) }
       </>
     );
   }
@@ -40,8 +41,8 @@ export const Closed: Story = {
 
 export const Opened: Story = {
   args: {
-    isOpen: true,
-    children: childrenString
+    children: childrenString,
+    closeByBackdrop: false
   },
   render: function Redner (args, context) {
     if (context.viewMode === 'docs') {

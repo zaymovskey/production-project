@@ -1,66 +1,57 @@
 import {
   type Dispatch,
   type FC,
-  type MouseEvent,
   type ReactNode,
-  type SetStateAction, useCallback,
-  useEffect, useState
+  type SetStateAction,
+  useCallback,
+  useEffect,
+  useState
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Backdrop } from 'shared/ui/Backdrop/Backdrop';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
 export interface IModalProps {
   className?: string;
   children?: ReactNode;
-  isOpen: boolean;
-  setIsOpen?: Dispatch<SetStateAction<boolean>>;
-  overlayClose?: boolean;
-  lazy?: boolean;
+  setShowModal: Dispatch<SetStateAction<boolean>>;
+  closeByBackdrop?: boolean;
 }
 
 export const Modal: FC<IModalProps> = ({
   className,
   children,
-  isOpen,
-  setIsOpen,
-  overlayClose = true
+  setShowModal,
+  closeByBackdrop = true
 }) => {
+  const [showContent, setShowContent] = useState(false);
+
   const mods: Record<string, boolean> = {
-    [cls.opened]: isOpen
+    [cls.showModal]: showContent
   };
-
-  const closeHandler = useCallback((): void => {
-    setIsOpen?.(false);
-  }, [setIsOpen]);
-
-  const onContentClick = (e: MouseEvent): void => {
-    e.stopPropagation();
-  };
-
-  const onOverlayClick = (): void => {
-    if (overlayClose) closeHandler();
-  };
-
-  const onKeyDown = useCallback((e: globalThis.KeyboardEvent): void => {
-    if (e.key === 'Escape') closeHandler();
-  }, [closeHandler]);
 
   useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', onKeyDown);
-    }
+    setShowContent(true);
+  }, []);
 
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [isOpen, onKeyDown]);
+  const closeHandler = useCallback((): void => {
+    setShowContent(false);
+    setTimeout(() => {
+      setShowModal(false);
+    }, 100);
+  }, [setShowModal]);
+
+  const closeByBackdropHandler = useCallback((): void => {
+    if (closeByBackdrop) closeHandler();
+  }, [closeHandler, closeByBackdrop]);
 
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods)}>
-        <div className={cls.overlay} onClick={onOverlayClick}>
-          <div className={classNames(cls.content, {}, [className])} onClick={onContentClick}>
+      <div>
+        <Backdrop close={closeByBackdropHandler} showBackdrop={showContent}/>
+        <div className={classNames(cls.Modal, mods)}>
+          <div className={classNames(cls.children, {}, [className])}>
             {children}
           </div>
         </div>
