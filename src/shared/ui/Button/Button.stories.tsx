@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { listDecorator } from 'shared/lib/storybook/listDecorator';
+import { useState } from 'react';
+import { row, rowsContainer } from 'shared/lib/storybook/positionStyles';
 import { Button, EnumButtonSize, EnumButtonTheme } from './Button';
 
 const meta = {
@@ -11,15 +12,59 @@ const meta = {
       disable: true
     }
   },
-  decorators: [listDecorator],
+  // decorators: [listDecorator],
   render: function Render (args) {
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    const [SLoading, setSLoading] = useState(false);
+    const [MLoading, setMLoading] = useState(false);
+    const [LLoading, setLLoading] = useState(false);
+    const [XLLoading, setXLLoading] = useState(false);
+    /* eslint-enable @typescript-eslint/no-unused-vars */
+
+    /* eslint-disable no-eval */
+    const setLoading = (size: string): void => {
+      eval(`set${size}Loading`)(true);
+      setTimeout(() => {
+        eval(`set${size}Loading`)(false);
+      }, 1000);
+    };
+
+    const buttons =
+      (Object.keys(EnumButtonSize) as Array<keyof typeof EnumButtonSize>)
+        .map((size, index) => (
+          <Button
+            key={index}
+            onClick={() => {
+              setLoading(size);
+            }}
+            loading={eval(`${size}Loading`)}
+            size={EnumButtonSize[size]}
+            {...args}
+          >{`size ${size}`}
+          </Button>
+        ));
+    /* eslint-enable no-eval */
+
+    const loadingButtons = (Object.keys(EnumButtonSize) as Array<keyof typeof EnumButtonSize>)
+      .map((size, index) => (
+        <Button
+          key={index}
+          loading={true}
+          size={EnumButtonSize[size]}
+          {...args}
+        >{`size ${size}`}
+        </Button>
+      ));
+
     return (
-      <>
-        <Button {...args} size={EnumButtonSize.S}>Size S</Button>
-        <Button {...args} size={EnumButtonSize.M}>Size M</Button>
-        <Button {...args} size={EnumButtonSize.L}>Size L</Button>
-        <Button {...args} size={EnumButtonSize.XL}>Size XL</Button>
-      </>
+      <div style={rowsContainer}>
+        <div style={row}>
+          {buttons}
+        </div>
+        <div style={row}>
+          {loadingButtons}
+        </div>
+      </div>
     );
   }
 } satisfies Meta<typeof Button>;

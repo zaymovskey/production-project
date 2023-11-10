@@ -3,6 +3,7 @@
   position: relative;
   width: 80px;
   height: 80px;
+  transition: var(--transition);
 }
 
 .Loader div {
@@ -11,7 +12,6 @@
   position: absolute;
   width: 64px;
   height: 64px;
-  margin: 8px;
   border: 8px solid var(--primary-accent-color);
   border-radius: 50%;
   animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;

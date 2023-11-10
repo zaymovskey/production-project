@@ -1,7 +1,7 @@
-import { type FC } from 'react';
+import { type FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, EnumButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import cls from './LoginForm.module.scss';
 
@@ -12,6 +12,8 @@ interface ILoginFormProps {
 export const LoginForm: FC<ILoginFormProps> = ({ className }) => {
   const { t } = useTranslation();
 
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <div className={cls.title}>
@@ -21,7 +23,11 @@ export const LoginForm: FC<ILoginFormProps> = ({ className }) => {
         <Input placeholder={t('Логин')} type={'text'}/>
         <Input placeholder={t('Пароль')} type={'password'}/>
       </div>
-      <Button>{t('Войти')}</Button>
+      <Button
+        loading={loading}
+        onClick={() => { setLoading(true); setTimeout(() => { setLoading(false); }, 1000); }}
+        theme={EnumButtonTheme.FILLED}
+      >{t('Войти')}</Button>
     </div>
   );
 };

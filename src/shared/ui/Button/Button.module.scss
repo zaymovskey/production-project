@@ -3,7 +3,11 @@
   cursor: pointer;
   font-weight: bold;
   transition: var(--transition);
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .filled {
@@ -12,6 +16,10 @@
 
   &:hover {
     background: var(--primary-accent-color-hover);
+  }
+
+  .loader div {
+    border-top-color: var(--bg-color);
   }
 }
 
@@ -25,24 +33,86 @@
   }
 }
 
+.children {
+  transition: var(--transition);
+}
+
+.loader {
+  position: absolute;
+  transform: translateY(-150%);
+}
+
+.loading {
+  pointer-events: none;
+  opacity: 0.5;
+
+  .loader {
+    transform: translateY(0);
+  }
+
+  .children {
+    transform: translateY(180%);
+  }
+}
+
 .size-s {
+  max-height: 32px;
   font-size: var(--font-size-s);
   padding: 4px 16px;
+
+  .loader div, .loader {
+    width: 16px;
+    height: 16px;
+  }
+
+  .loader div {
+    border-width: 2px;
+  }
 }
 
 .size-m {
+  max-height: 40px;
   font-size: var(--font-size-m);
   padding: 8px 24px;
+
+  .loader div, .loader {
+    width: 24px;
+    height: 24px;
+  }
+
+  .loader div {
+    border-width: 3px;
+  }
 }
 
 .size-l {
+  max-height: 48px;
   font-size: var(--font-size-l);
   padding: 12px 32px;
+
+  .loader div, .loader {
+    width: 32px;
+    height: 32px;
+  }
+
+  .loader div {
+    border-width: 4px;
+  }
 }
 
 .size-xl {
+  max-height: 56px;
   font-size: var(--font-size-xl);
   padding: 16px 40px;
+
+  .loader div, .loader {
+    width: 40px;
+    height: 40px;
+  }
+
+  .loader div {
+    border-width: 5px;
+  }
 }
 
 
