@@ -3,6 +3,7 @@ import { type Low } from '@commonify/lowdb';
 import { type Request, type Response } from 'express';
 import { type NextFunction } from 'express-serve-static-core';
 import { type Data } from '../../server';
+import { type ApiError } from '../exceptions/ApiError';
 import { UserService } from '../services/UserService';
 
 export class UserController {
@@ -26,7 +27,7 @@ export class UserController {
       res.cookie('refreshToken', userData.refreshToken, { maxAge, httpOnly: true });
       res.json(userData);
     } catch (e) {
-      console.log(e);
+      next(e);
     }
   };
 
@@ -35,6 +36,11 @@ export class UserController {
     res: Response,
     next: NextFunction
   ): Promise<void> {
+    try {
+
+    } catch (e) {
+      next(e);
+    }
   };
 
   public async logout (
@@ -42,6 +48,11 @@ export class UserController {
     res: Response,
     next: NextFunction
   ): Promise<void> {
+    try {
+
+    } catch (e) {
+      next(e);
+    }
   };
 
   public async activate (

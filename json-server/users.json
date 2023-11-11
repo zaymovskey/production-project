@@ -7,6 +7,12 @@
       "isActivated": true,
       "activationLink": "02a29e71-d68a-48d6-8b73-767a9e1ad88c",
       "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InpheW1vdnNrZXlAZ21haWwuY29tIiwiaWQiOiJmMGMxODgyOS05Y2IwLTQ5ZTAtOWMxNC00NzdiODdkOTI5YWUiLCJpc0FjdGl2YXRlZCI6ZmFsc2UsImlhdCI6MTY5OTczMjcwNiwiZXhwIjoxNzAyMzI0NzA2fQ.0KExFhvMuxxBnR_oMrYiWuXMpRp20MA8AIfXJDRuu8s"
+    },
+    {
+      "id": "79b257e3-04a3-4437-b076-8504966754c7",
+      "password": "$2b$04$apvbCYDlu4cJvENIfsassesPylKnwlqQW53nccsf6g3TVI4jCweoS",
+      "isActivated": false,
+      "activationLink": "5dab88a9-319c-4d32-9864-6b6007a86aec"
     }
   ]
 }

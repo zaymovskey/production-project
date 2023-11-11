@@ -7,6 +7,7 @@ import { type Request, type Response } from 'express';
 import { type NextFunction } from 'express-serve-static-core';
 import jsonServer from 'json-server';
 import { UserController } from './src/controllers/UserController';
+import { errorMiddleware } from './src/middlewares/errorMiddleware';
 import { type IUser } from './src/models/UserModel';
 import './global';
 
@@ -52,6 +53,8 @@ const wrapper = async (): Promise<void> => {
   });
 
   server.use(router);
+
+  server.use(errorMiddleware);
 
   server.listen(process.env.PORT, () => {
     console.log('Run Auth API Server');

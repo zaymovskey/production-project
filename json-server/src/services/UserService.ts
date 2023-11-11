@@ -7,6 +7,7 @@ import {
   type Data
 } from '../../server';
 import { UserDto } from '../dtos/UserDto';
+import { ApiError } from '../exceptions/ApiError';
 import { type IUser } from '../models/UserModel';
 import { MailService } from './MailService';
 
@@ -26,7 +27,7 @@ export class UserService {
       .find((user) => user.email === email);
 
     if (candidate != null) {
-      throw new Error(`Пользователь с email ${email} уже существует`);
+      throw ApiError.BadRequest(`Пользователь с email ${email} уже существует`);
     }
 
     const passwordHash = await hash(password, 3);
@@ -84,7 +85,7 @@ export class UserService {
     const user = this.usersDB.data?.users
       .find(user => user.activationLink === activationLink);
     if (user == null) {
-      throw new Error('Некорректная ссылка активации');
+      throw ApiError.BadRequest('Некорректная ссылка активации');
     }
     user.isActivated = true;
     await this.usersDB.write();
