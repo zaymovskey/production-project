@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": "5d732060-502f-4103-a003-b76e8e4774d3",
+      "email": "zaymovskey@gmail.com",
+      "password": "$2b$04$SPQolUn7tjAl7HIzYeBW4.YvhuDmPL7GnNq6INoOHoLt1ZH0etRy2",
+      "isActivated": false,
+      "activationLink": "adfa9747-b6cd-4472-ae97-29aada48a28b",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InpheW1vdnNrZXlAZ21haWwuY29tIiwiaWQiOiI1ZDczMjA2MC01MDJmLTQxMDMtYTAwMy1iNzZlOGU0Nzc0ZDMiLCJpc0FjdGl2YXRlZCI6ZmFsc2UsImlhdCI6MTY5OTczMTgwNCwiZXhwIjoxNzAyMzIzODA0fQ.-aCJY6cLWzWWwWw0CprGRp7hi9ysgMDXhPTyndNSiA4"
+    }
+  ]
+}
