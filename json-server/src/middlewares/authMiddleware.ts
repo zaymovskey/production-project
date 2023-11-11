@@ -4,7 +4,7 @@ import { usersDB } from '../../server';
 import { ApiError } from '../exceptions/ApiError';
 import { UserService } from '../services/UserService';
 
-export function authMiddleware (req: Request, res: Response, next: NextFunction) {
+export function authMiddleware (req: Request, res: Response, next: NextFunction): void {
   try {
     const authorizationHeader = req.headers.authorization;
     if (authorizationHeader == null) {
