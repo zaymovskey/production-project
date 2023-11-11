@@ -12,6 +12,7 @@ import { UserController } from './src/controllers/UserController';
 import { errorMiddleware } from './src/middlewares/errorMiddleware';
 import { type IUser } from './src/models/UserModel';
 import './global';
+import { authMiddleware } from './src/middlewares/authMiddleware';
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
@@ -22,6 +23,8 @@ export interface Data {
   users: IUser[];
 }
 
+export const usersDB = new Low<Data>(new JSONFile(USERS_DB_PATH));
+
 const wrapper = async (): Promise<void> => {
   const server = jsonServer.create();
   const router = jsonServer.router(DB_PATH);
@@ -31,7 +34,6 @@ const wrapper = async (): Promise<void> => {
   server.use(jsonServer.defaults());
   server.use(cookies());
 
-  const usersDB = new Low<Data>(new JSONFile(USERS_DB_PATH));
   await usersDB.read();
 
   const userController = new UserController(usersDB);
@@ -54,7 +56,7 @@ const wrapper = async (): Promise<void> => {
   server.get('/refresh', (req: Request, res: Response, next: NextFunction) => {
     void userController.refresh(req, res, next);
   });
-  server.get('/users', (req: Request, res: Response, next: NextFunction) => {
+  server.get('/users', authMiddleware, (req: Request, res: Response, next: NextFunction) => {
     void userController.getUsers(req, res, next);
   });
 

@@ -85,14 +85,20 @@ export class UserController {
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<Response | undefined> {
+    const { refreshToken } = req.cookies;
+    const userData = await this.userService.refresh(refreshToken);
+    const maxAge = 30 * 24 * 60 * 60 * 1000;
+    res.cookie('refreshToken', userData.refreshToken, { maxAge, httpOnly: true });
+    return res.json(userData);
   };
 
   public async getUsers (
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
-    res.json([1, 2, 3]);
+  ): Promise<Response | undefined> {
+    const users = this.usersDB.data?.users;
+    return res.json(users);
   };
 }
