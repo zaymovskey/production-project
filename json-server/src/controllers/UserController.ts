@@ -2,8 +2,9 @@ import * as process from 'process';
 import { type Low } from '@commonify/lowdb';
 import { type Request, type Response } from 'express';
 import { type NextFunction } from 'express-serve-static-core';
+import { validationResult } from 'express-validator';
 import { type Data } from '../../server';
-import { type ApiError } from '../exceptions/ApiError';
+import { ApiError } from '../exceptions/ApiError';
 import { UserService } from '../services/UserService';
 
 export class UserController {
@@ -19,13 +20,17 @@ export class UserController {
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<Response | undefined> {
     try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        next(ApiError.BadRequest('Ошибка валидации', errors.array())); return;
+      }
       const { email, password }: { email: string; password: string } = req.body;
       const userData = await this.userService.registration(email, password);
       const maxAge = 30 * 24 * 60 * 60 * 1000;
       res.cookie('refreshToken', userData.refreshToken, { maxAge, httpOnly: true });
-      res.json(userData);
+      return res.json(userData);
     } catch (e) {
       next(e);
     }
@@ -35,9 +40,13 @@ export class UserController {
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<Response | undefined> {
     try {
-
+      const { email, password }: { email: string; password: string } = req.body;
+      const userData = await this.userService.login(email, password);
+      const maxAge = 30 * 24 * 60 * 60 * 1000;
+      res.cookie('refreshToken', userData.refreshToken, { maxAge, httpOnly: true });
+      return res.json(userData);
     } catch (e) {
       next(e);
     }
@@ -47,9 +56,12 @@ export class UserController {
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<void> {
+  ): Promise<Response | undefined> {
     try {
-
+      const { refreshToken } = req.cookies;
+      await this.userService.logout(refreshToken);
+      res.clearCookie('refreshToken');
+      return res.status(200).json({ message: 'Пользователь успешно разлогинен' });
     } catch (e) {
       next(e);
     }

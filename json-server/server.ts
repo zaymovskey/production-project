@@ -2,9 +2,11 @@ import path from 'path';
 import * as process from 'process';
 import { Low, JSONFile } from '@commonify/lowdb';
 import bodyParser from 'body-parser';
+import cookies from 'cookie-parser';
 import * as dotenv from 'dotenv';
 import { type Request, type Response } from 'express';
 import { type NextFunction } from 'express-serve-static-core';
+import { body } from 'express-validator';
 import jsonServer from 'json-server';
 import { UserController } from './src/controllers/UserController';
 import { errorMiddleware } from './src/middlewares/errorMiddleware';
@@ -27,15 +29,19 @@ const wrapper = async (): Promise<void> => {
   server.use(bodyParser.urlencoded({ extended: true }));
   server.use(bodyParser.json());
   server.use(jsonServer.defaults());
+  server.use(cookies());
 
   const usersDB = new Low<Data>(new JSONFile(USERS_DB_PATH));
   await usersDB.read();
 
   const userController = new UserController(usersDB);
 
-  server.post('/registration', (req: Request, res: Response, next: NextFunction) => {
-    void userController.registration(req, res, next);
-  });
+  server.post('/registration',
+    body('email').isEmail(),
+    body('password').isLength({ min: 3, max: 32 }),
+    (req: Request, res: Response, next: NextFunction) => {
+      void userController.registration(req, res, next);
+    });
   server.post('/login', (req: Request, res: Response, next: NextFunction) => {
     void userController.login(req, res, next);
   });

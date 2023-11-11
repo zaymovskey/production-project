@@ -1,6 +1,6 @@
 import * as process from 'process';
 import { type Low } from '@commonify/lowdb';
-import { hash } from 'bcrypt';
+import { compare, hash } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import {
@@ -56,6 +56,36 @@ export class UserService {
     return { user: userDto, ...tokens };
   };
 
+  public async login (
+    email: string,
+    password: string
+  ): Promise<{ user: UserDto; accessToken: string; refreshToken: string }> {
+    const user = this.usersDB.data?.users.find(user => user.email === email);
+    if (user == null) {
+      throw ApiError.BadRequest(`Пользователя с email ${email} не существует`);
+    }
+
+    if (!user.isActivated) {
+      throw ApiError.BadRequest('Учетная запись не активирована. Подтвердите почту');
+    }
+
+    const isPasswordsEqual = await compare(password, user.password);
+    if (!isPasswordsEqual) {
+      throw ApiError.BadRequest('Введен неверный пароль');
+    }
+    const userDto = new UserDto(user);
+    const tokens = this.generateTokens(userDto);
+
+    user.refreshToken = tokens.refreshToken;
+    await this.usersDB.write();
+
+    return { user: userDto, ...tokens };
+  }
+
+  public async logout (refreshToken: string): Promise<void> {
+    await this.removeToken(refreshToken);
+  }
+
   public generateTokens (
     payload: UserDto
   ): { accessToken: string; refreshToken: string } {
@@ -88,6 +118,16 @@ export class UserService {
       throw ApiError.BadRequest('Некорректная ссылка активации');
     }
     user.isActivated = true;
+    await this.usersDB.write();
+  }
+
+  public async removeToken (refreshToken: string): Promise<void> {
+    const user = this.usersDB.data?.users
+      .find(user => user.refreshToken === refreshToken);
+    if (user == null) {
+      throw ApiError.BadRequest('Пользователь с таким refreshToken не найден');
+    }
+    user.refreshToken = '';
     await this.usersDB.write();
   }
 }
