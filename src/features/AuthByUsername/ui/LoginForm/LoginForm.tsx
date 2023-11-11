@@ -12,8 +12,8 @@ interface ILoginFormProps {
 export const LoginForm: FC<ILoginFormProps> = ({ className }) => {
   const { t } = useTranslation();
 
-  const [login, setLogin] = useState();
-  const [password, setPassword] = useState();
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
@@ -21,8 +21,18 @@ export const LoginForm: FC<ILoginFormProps> = ({ className }) => {
         <h2>{t('Войти')}</h2>
       </div>
       <div className={cls.inputs}>
-        <Input placeholder={t('Логин')} type={'text'}/>
-        <Input placeholder={t('Пароль')} type={'password'}/>
+        <Input
+          value={login}
+          onChange={setLogin}
+          placeholder={t('Логин')}
+          type={'text'}
+        />
+        <Input
+          value={password}
+          onChange={setPassword}
+          placeholder={t('Пароль')}
+          type={'password'}
+        />
       </div>
       <Button
         theme={EnumButtonTheme.FILLED}
