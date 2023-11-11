@@ -1,3 +1,4 @@
+import * as process from 'process';
 import { type Low } from '@commonify/lowdb';
 import { type Request, type Response } from 'express';
 import { type NextFunction } from 'express-serve-static-core';
@@ -48,6 +49,13 @@ export class UserController {
     res: Response,
     next: NextFunction
   ): Promise<void> {
+    try {
+      const activationLink = req.params.link;
+      await this.userService.active(activationLink);
+      res.redirect(process.env.CLIENT_URL);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   public async refresh (

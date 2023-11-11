@@ -79,4 +79,14 @@ export class UserService {
     if (user != null) user.refreshToken = refreshToken;
     await this.usersDB.write();
   }
+
+  public async active (activationLink: string): Promise<void> {
+    const user = this.usersDB.data?.users
+      .find(user => user.activationLink === activationLink);
+    if (user == null) {
+      throw new Error('Некорректная ссылка активации');
+    }
+    user.isActivated = true;
+    await this.usersDB.write();
+  }
 }
