@@ -65,16 +65,17 @@ export class UserService {
       throw ApiError.BadRequest(`Пользователя с email ${email} не существует`);
     }
 
+    const isPasswordsEqual = await compare(password, user.password);
+    if (!isPasswordsEqual) {
+      throw ApiError.BadRequest('Введен неверный пароль');
+    }
+
     if (!user.isActivated) {
       throw ApiError.BadRequest(
         'Учетная запись не активирована. Подтвердите почту'
       );
     }
 
-    const isPasswordsEqual = await compare(password, user.password);
-    if (!isPasswordsEqual) {
-      throw ApiError.BadRequest('Введен неверный пароль');
-    }
     const userDto = new UserDto(user);
     const tokens = this.generateTokens(userDto);
 

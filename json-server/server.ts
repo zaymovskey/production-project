@@ -44,9 +44,12 @@ const wrapper = async (): Promise<void> => {
     (req: Request, res: Response, next: NextFunction) => {
       void userController.registration(req, res, next);
     });
-  server.post('/login', (req: Request, res: Response, next: NextFunction) => {
-    void userController.login(req, res, next);
-  });
+  server.post('/login',
+    body('email').isEmail(),
+    body('password').isLength({ min: 3, max: 32 }),
+    (req: Request, res: Response, next: NextFunction) => {
+      void userController.login(req, res, next);
+    });
   server.post('/logout', (req: Request, res: Response, next: NextFunction) => {
     void userController.logout(req, res, next);
   });

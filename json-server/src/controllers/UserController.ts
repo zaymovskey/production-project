@@ -42,6 +42,10 @@ export class UserController {
     next: NextFunction
   ): Promise<Response | undefined> {
     try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        next(ApiError.BadRequest('Ошибка валидации', errors.array())); return;
+      }
       const { email, password }: { email: string; password: string } = req.body;
       const userData = await this.userService.login(email, password);
       const maxAge = 30 * 24 * 60 * 60 * 1000;

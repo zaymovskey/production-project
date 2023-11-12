@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "id": "f0c18829-9cb0-49e0-9c14-477b87d929ae",
-      "email": "zaymovskey@gmail.com",
-      "password": "$2b$04$hVxPV/u47G7ZPup7AyaGd.Mhzsr4KgqkStLK/7lESnv2yghUHul8C",
+      "id": "ae1e7bbd-ef9b-482a-a0ee-5e778cdc5151",
+      "email": "zaymovskey@mail.ru",
+      "password": "$2b$04$.FSpBInzvLHwKHBeSfkKmeCGauxcsEMpXqM1irxLi6aMNtFZNyuSG",
       "isActivated": true,
-      "activationLink": "02a29e71-d68a-48d6-8b73-767a9e1ad88c",
-      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InpheW1vdnNrZXlAZ21haWwuY29tIiwiaWQiOiJmMGMxODgyOS05Y2IwLTQ5ZTAtOWMxNC00NzdiODdkOTI5YWUiLCJpc0FjdGl2YXRlZCI6dHJ1ZSwiaWF0IjoxNjk5NzQyMDYzLCJleHAiOjE3MDIzMzQwNjN9.9p9AvfW8YQjcj8fadw5FY8i0RwWF8yXwse2wPASTey8"
+      "activationLink": "7f21d381-8ad4-4b2e-8883-11a6e860e038",
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InpheW1vdnNrZXlAbWFpbC5ydSIsImlkIjoiYWUxZTdiYmQtZWY5Yi00ODJhLWEwZWUtNWU3NzhjZGM1MTUxIiwiaXNBY3RpdmF0ZWQiOnRydWUsImlhdCI6MTY5OTc4NTE2MCwiZXhwIjoxNzAyMzc3MTYwfQ.rHyhMRtX-DEBNlV7C3mw9x5bp1dR6zBZjTMbXC-8MV8"
     }
   ]
 }
