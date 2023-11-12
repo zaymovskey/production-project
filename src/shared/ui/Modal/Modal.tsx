@@ -46,14 +46,29 @@ export const Modal: FC<IModalProps> = ({
     if (closeByBackdrop) closeHandler();
   }, [closeHandler, closeByBackdrop]);
 
+  const onKeyDown = useCallback(
+    (e: globalThis.KeyboardEvent): void => {
+      if (e.key === 'Escape') closeHandler();
+    },
+    [closeHandler]
+  );
+
+  useEffect(() => {
+    if (showContent) {
+      window.addEventListener('keydown', onKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [showContent, onKeyDown]);
+
   return (
     <Portal>
       <div>
-        <Backdrop close={closeByBackdropHandler} showBackdrop={showContent}/>
+        <Backdrop close={closeByBackdropHandler} showBackdrop={showContent} />
         <div className={classNames(cls.Modal, mods)}>
-          <div className={classNames(cls.children, {}, [className])}>
-            {children}
-          </div>
+          <div className={classNames(cls.children, {}, [className])}>{children}</div>
         </div>
       </div>
     </Portal>

@@ -21,8 +21,8 @@ export const RegistrationForm: FC<IRegistrationProps> = ({ className }) => {
         <Input
           value={login}
           onChange={setLogin}
-          placeholder={t('Логин')}
-          type={'text'}
+          placeholder={t('Email')}
+          type={'email'}
           theme={EnumInputTheme.BOTTOM_BORDER}
         />
         <Input
