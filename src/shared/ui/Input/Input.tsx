@@ -8,6 +8,11 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
+export enum EnumInputTheme {
+  PRIMARY = 'primary',
+  BOTTOM_BORDER = 'bottomBorder'
+}
+
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 interface IInputProps extends HTMLInputProps {
@@ -15,6 +20,7 @@ interface IInputProps extends HTMLInputProps {
   value?: string;
   onChange?: (value: string) => void;
   type?: HTMLInputTypeAttribute;
+  theme?: EnumInputTheme;
 }
 
 export const Input: FC<IInputProps> = memo((props) => {
@@ -24,6 +30,7 @@ export const Input: FC<IInputProps> = memo((props) => {
     value,
     onChange,
     type = 'text',
+    theme = EnumInputTheme.PRIMARY,
     ...defaultInputProps
     /* eslint-enable react/prop-types */
   } = props;
@@ -34,7 +41,7 @@ export const Input: FC<IInputProps> = memo((props) => {
 
   return (
     <input
-      className={classNames(cls.Input, {}, [className])}
+      className={classNames(cls.Input, {}, [className, cls[theme]])}
       type={type}
       value={value}
       onChange={onChangeHandler}

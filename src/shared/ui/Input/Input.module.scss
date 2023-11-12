@@ -1,5 +1,17 @@
 .Input {
-  border: 1px solid var(--primary-accent-color);
   border-radius: var(--border-radius);
   padding: 7px 10px;
+  transition: var(--transition);
+
+  &:focus {
+    border-color: var(--primary-accent-color);
+  }
+}
+
+.primary {
+  border: 1px solid var(--primary-accent-color-discolored);
+}
+
+.bottomBorder {
+  border-bottom: 2px solid var(--primary-accent-color-discolored);
 }

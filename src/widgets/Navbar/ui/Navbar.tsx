@@ -1,6 +1,6 @@
 import { type FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LoginModal } from 'features/AuthByUsername/ui/LoginModal/LoginModal';
+import { LoginModal } from 'features/Auth/ui/LoginModal/LoginModal';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   Button,

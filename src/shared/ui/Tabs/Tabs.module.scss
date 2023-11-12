@@ -1,0 +1,26 @@
+.Tabs {
+  display: flex;
+  align-items: flex-start;
+}
+
+.tab {
+  padding: 10px;
+  opacity: 0.3;
+  border-bottom: 1px solid var(--inverted-bg-color);
+  user-select: none;
+  cursor: pointer;
+  transition: var(--transition);
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 0 1px;
+  font-weight: bold;
+
+  &:not(.selected):hover {
+    opacity: 0.9;
+  }
+}
+
+.selected {
+  opacity: 1;
+}

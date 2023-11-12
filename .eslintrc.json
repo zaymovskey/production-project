@@ -46,14 +46,6 @@
         "react-hooks/exhaustive-deps": "warn",
         "jsx-a11y/no-static-element-interactions": "warn",
         "jsx-a11y/click-events-have-key-events": "warn",
-        "max-len": [
-            "error",
-            {
-                "code": 88,
-                "ignoreComments": true,
-                "ignoreStrings": true
-            }
-        ],
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/array-type": "off",
         "@typescript-eslint/semi": [
