@@ -10,26 +10,26 @@ interface IErrorBoundaryState {
 }
 
 class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundaryState> {
-  constructor (props: IErrorBoundaryProps) {
+  constructor(props: IErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
 
-  public static getDerivedStateFromError (_: Error): IErrorBoundaryState {
+  public static getDerivedStateFromError(_: Error): IErrorBoundaryState {
     // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
 
-  public componentDidCatch (error: Error, errorInfo: ErrorInfo): void {
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     console.error('Uncaught error:', error, errorInfo);
   }
 
-  public render (): ReactNode {
+  public render(): ReactNode {
     const { hasError } = this.state;
     const { children } = this.props;
 
     if (hasError) {
-      return <PageError/>;
+      return <PageError />;
     }
 
     return children;

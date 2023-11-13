@@ -9,7 +9,8 @@ const AboutPage: FC = () => {
     <div>
       {t('О сайте')}
       <Counter />
-    </div>);
+    </div>
+  );
 };
 
 export default AboutPage;

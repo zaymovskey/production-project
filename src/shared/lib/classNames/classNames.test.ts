@@ -12,10 +12,8 @@ describe('classNames', () => {
 
   test('with two modes (true false)', () => {
     const expected = 'someClass class1 class2 hover';
-    expect(classNames(
-      'someClass',
-      { hover: true, scroll: false },
-      ['class1', 'class2'])
+    expect(
+      classNames('someClass', { hover: true, scroll: false }, ['class1', 'class2'])
     ).toBe(expected);
   });
 });

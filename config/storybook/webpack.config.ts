@@ -4,7 +4,11 @@ import { buildScssLoader } from '../build/loaders/buildScssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { type IBuildPaths } from '../build/types/config';
 
-export default ({ config }: { config: webpack.Configuration }): webpack.Configuration => {
+export default ({
+  config
+}: {
+  config: webpack.Configuration;
+}): webpack.Configuration => {
   const paths: IBuildPaths = {
     build: '',
     html: '',
@@ -16,7 +20,9 @@ export default ({ config }: { config: webpack.Configuration }): webpack.Configur
   if (config.module?.rules != null) {
     config.module.rules
       .filter((rule: webpack.RuleSetRule) => (rule?.test as RegExp)?.test('.svg'))
-      .forEach((rule: webpack.RuleSetRule) => { rule.exclude = /\.svg$/i; });
+      .forEach((rule: webpack.RuleSetRule) => {
+        rule.exclude = /\.svg$/i;
+      });
   }
 
   config.resolve?.modules?.push(paths.src);

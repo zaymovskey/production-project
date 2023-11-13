@@ -1,6 +1,6 @@
 type TypeModes = Record<string, boolean | string>;
 
-export function classNames (
+export function classNames(
   cls: string,
   mods: TypeModes = {},
   additional: (string | undefined)[] = []

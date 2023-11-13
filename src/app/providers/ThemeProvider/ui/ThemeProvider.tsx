@@ -11,8 +11,10 @@ interface IParentCompProps {
 }
 
 const defaultTheme =
-  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY)) as EnumTheme ??
-  (window.matchMedia('(prefers-color-scheme: light)').matches ? EnumTheme.LIGHT : EnumTheme.DARK);
+  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as EnumTheme) ??
+  (window.matchMedia('(prefers-color-scheme: light)').matches
+    ? EnumTheme.LIGHT
+    : EnumTheme.DARK);
 
 const ThemeProvider: FC<IParentCompProps> = ({ children }) => {
   const [theme, setTheme] = useState<EnumTheme>(defaultTheme);
@@ -25,11 +27,7 @@ const ThemeProvider: FC<IParentCompProps> = ({ children }) => {
     [theme]
   );
 
-  return (
-    <ThemeContext.Provider value={defaultProps}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
 };
 
 export default ThemeProvider;

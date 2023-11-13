@@ -12,18 +12,16 @@ import { MailService } from './MailService';
 export class UserService {
   usersDB: Low<Data>;
   mailService: MailService;
-  constructor (usersDB: Low<Data>) {
+  constructor(usersDB: Low<Data>) {
     this.usersDB = usersDB;
     this.mailService = new MailService();
   }
 
-  public async registration (
+  public async registration(
     email: string,
     password: string
   ): Promise<{ user: UserDto; accessToken: string; refreshToken: string }> {
-    const candidate = this.usersDB.data?.users.find(
-      (user) => user.email === email
-    );
+    const candidate = this.usersDB.data?.users.find((user) => user.email === email);
 
     if (candidate != null) {
       throw ApiError.BadRequest(`Пользователь с email ${email} уже существует`);
@@ -56,7 +54,7 @@ export class UserService {
     return { user: userDto, ...tokens };
   }
 
-  public async login (
+  public async login(
     email: string,
     password: string
   ): Promise<{ user: UserDto; accessToken: string; refreshToken: string }> {
@@ -71,9 +69,7 @@ export class UserService {
     }
 
     if (!user.isActivated) {
-      throw ApiError.BadRequest(
-        'Учетная запись не активирована. Подтвердите почту'
-      );
+      throw ApiError.BadRequest('Учетная запись не активирована. Подтвердите почту');
     }
 
     const userDto = new UserDto(user);
@@ -85,19 +81,20 @@ export class UserService {
     return { user: userDto, ...tokens };
   }
 
-  public async logout (refreshToken: string): Promise<void> {
+  public async logout(refreshToken: string): Promise<void> {
     await this.removeToken(refreshToken);
   }
 
-  public async refresh (
+  public async refresh(
     refreshToken?: string
   ): Promise<{ user: UserDto; accessToken: string; refreshToken: string }> {
     if (refreshToken == null) {
       throw ApiError.UnauthorizedError();
     }
     const userData = this.validateRefreshToken(refreshToken);
-    const user = this.usersDB.data?.users
-      .find(user => user.refreshToken === refreshToken);
+    const user = this.usersDB.data?.users.find(
+      (user) => user.refreshToken === refreshToken
+    );
 
     if (userData == null || user == null) {
       throw ApiError.UnauthorizedError();
@@ -112,7 +109,7 @@ export class UserService {
     return { user: userDto, ...tokens };
   }
 
-  public generateTokens (payload: UserDto): {
+  public generateTokens(payload: UserDto): {
     accessToken: string;
     refreshToken: string;
   } {
@@ -128,13 +125,13 @@ export class UserService {
     };
   }
 
-  public async saveToken (userId: string, refreshToken: string): Promise<void> {
+  public async saveToken(userId: string, refreshToken: string): Promise<void> {
     const user = this.usersDB.data?.users.find((user) => user.id === userId);
     if (user != null) user.refreshToken = refreshToken;
     await this.usersDB.write();
   }
 
-  public async active (activationLink: string): Promise<void> {
+  public async active(activationLink: string): Promise<void> {
     const user = this.usersDB.data?.users.find(
       (user) => user.activationLink === activationLink
     );
@@ -145,7 +142,7 @@ export class UserService {
     await this.usersDB.write();
   }
 
-  public async removeToken (refreshToken: string): Promise<void> {
+  public async removeToken(refreshToken: string): Promise<void> {
     const user = this.usersDB.data?.users.find(
       (user) => user.refreshToken === refreshToken
     );
@@ -156,7 +153,7 @@ export class UserService {
     await this.usersDB.write();
   }
 
-  public validateAccessToken (accessToken: string): string | JwtPayload | null {
+  public validateAccessToken(accessToken: string): string | JwtPayload | null {
     try {
       return verify(accessToken, process.env.JWT_ACCESS_SECRET);
     } catch (e) {
@@ -164,7 +161,7 @@ export class UserService {
     }
   }
 
-  public validateRefreshToken (refreshToken: string): string | JwtPayload | null {
+  public validateRefreshToken(refreshToken: string): string | JwtPayload | null {
     try {
       return verify(refreshToken, process.env.JWT_REFRESH_SECRET);
     } catch (e) {

@@ -12,7 +12,9 @@ export const Backdrop: FC<IBackdropProps> = ({ className, close, showBackdrop })
   return (
     <div
       onClick={close}
-      className={classNames(cls.Backdrop, { [cls.showBackdrop]: showBackdrop }, [className])}
+      className={classNames(cls.Backdrop, { [cls.showBackdrop]: showBackdrop }, [
+        className
+      ])}
     ></div>
   );
 };

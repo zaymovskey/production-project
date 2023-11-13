@@ -21,15 +21,10 @@ export const Sidebar: FC<ISideBarProps> = ({ className }) => {
   return (
     <div
       data-testid='sidebar'
-      className={classNames(cls.SideBar, { [cls.active]: active }, [
-        className
-      ])}
+      className={classNames(cls.SideBar, { [cls.active]: active }, [className])}
     >
       <div className={cls.header}>
-        <Hamburger
-          active={active}
-          setActive={setActive}
-        />
+        <Hamburger active={active} setActive={setActive} />
       </div>
 
       <div className={cls.body}>
@@ -40,11 +35,9 @@ export const Sidebar: FC<ISideBarProps> = ({ className }) => {
             className={cls.appLink}
           >
             <div className={cls.body__itemIcon}>
-              <HomeIcon/>
+              <HomeIcon />
             </div>
-            <div className={cls.body__itemText}>
-              {t('Главная')}
-            </div>
+            <div className={cls.body__itemText}>{t('Главная')}</div>
           </AppLink>
         </div>
         <div className={cls.body__item}>
@@ -54,11 +47,9 @@ export const Sidebar: FC<ISideBarProps> = ({ className }) => {
             className={cls.appLink}
           >
             <div className={cls.body__itemIcon}>
-              <AboutIcon/>
+              <AboutIcon />
             </div>
-            <div className={cls.body__itemText}>
-              {t('О сайте')}
-            </div>
+            <div className={cls.body__itemText}>{t('О сайте')}</div>
           </AppLink>
         </div>
       </div>

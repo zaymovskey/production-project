@@ -30,10 +30,7 @@ const preview: Preview = {
       }
     }
   },
-  decorators: [
-    themeDecorator,
-    routerDecorator
-  ]
+  decorators: [themeDecorator, routerDecorator]
 };
 
 export default preview;

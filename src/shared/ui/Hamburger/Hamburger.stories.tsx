@@ -6,7 +6,7 @@ const meta = {
   title: 'shared/Hamburger',
   component: Hamburger,
   tags: ['autodocs'],
-  render: function Render (args) {
+  render: function Render(args) {
     const [active, setActive] = useState<boolean>(false);
     return <Hamburger {...args} active={active} setActive={setActive} />;
   }

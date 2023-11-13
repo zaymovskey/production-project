@@ -5,7 +5,7 @@ import cls from './Button.module.scss';
 
 export enum EnumButtonTheme {
   FILLED = 'filled',
-  CONTOUR = 'contour',
+  CONTOUR = 'contour'
 }
 
 export enum EnumButtonSize {
@@ -41,6 +41,7 @@ export const Button: FC<IButtonProps> = ({
       {...defaultButtonProps}
     >
       <div className={cls.children}>{children}</div>
-      <Loader className={cls.loader}/>
-    </button>);
+      <Loader className={cls.loader} />
+    </button>
+  );
 };

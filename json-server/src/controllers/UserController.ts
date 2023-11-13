@@ -11,12 +11,12 @@ export class UserController {
   usersDB: Low<Data>;
   userService: UserService;
 
-  constructor (usersDB: Low<Data>) {
+  constructor(usersDB: Low<Data>) {
     this.usersDB = usersDB;
     this.userService = new UserService(usersDB);
   }
 
-  public async registration (
+  public async registration(
     req: Request,
     res: Response,
     next: NextFunction
@@ -24,7 +24,8 @@ export class UserController {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        next(ApiError.BadRequest('Ошибка валидации', errors.array())); return;
+        next(ApiError.BadRequest('Ошибка валидации', errors.array()));
+        return;
       }
       const { email, password }: { email: string; password: string } = req.body;
       const userData = await this.userService.registration(email, password);
@@ -34,9 +35,9 @@ export class UserController {
     } catch (e) {
       next(e);
     }
-  };
+  }
 
-  public async login (
+  public async login(
     req: Request,
     res: Response,
     next: NextFunction
@@ -44,7 +45,8 @@ export class UserController {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        next(ApiError.BadRequest('Ошибка валидации', errors.array())); return;
+        next(ApiError.BadRequest('Ошибка валидации', errors.array()));
+        return;
       }
       const { email, password }: { email: string; password: string } = req.body;
       const userData = await this.userService.login(email, password);
@@ -54,9 +56,9 @@ export class UserController {
     } catch (e) {
       next(e);
     }
-  };
+  }
 
-  public async logout (
+  public async logout(
     req: Request,
     res: Response,
     next: NextFunction
@@ -69,9 +71,9 @@ export class UserController {
     } catch (e) {
       next(e);
     }
-  };
+  }
 
-  public async activate (
+  public async activate(
     req: Request,
     res: Response,
     next: NextFunction
@@ -83,9 +85,9 @@ export class UserController {
     } catch (e) {
       console.log(e);
     }
-  };
+  }
 
-  public async refresh (
+  public async refresh(
     req: Request,
     res: Response,
     next: NextFunction
@@ -95,14 +97,14 @@ export class UserController {
     const maxAge = 30 * 24 * 60 * 60 * 1000;
     res.cookie('refreshToken', userData.refreshToken, { maxAge, httpOnly: true });
     return res.json(userData);
-  };
+  }
 
-  public async getUsers (
+  public async getUsers(
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<Response | undefined> {
     const users = this.usersDB.data?.users;
     return res.json(users);
-  };
+  }
 }

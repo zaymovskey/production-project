@@ -4,7 +4,7 @@ import i18n from '../../../../config/i18n/i18nForTests';
 export const translationsDecorator: Decorator = (Story) => {
   return (
     <I18nextProvider i18n={i18n}>
-      <Story/>
+      <Story />
     </I18nextProvider>
   );
 };

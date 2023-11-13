@@ -38,18 +38,22 @@ const wrapper = async (): Promise<void> => {
 
   const userController = new UserController(usersDB);
 
-  server.post('/registration',
+  server.post(
+    '/registration',
     body('email').isEmail(),
     body('password').isLength({ min: 3, max: 32 }),
     (req: Request, res: Response, next: NextFunction) => {
       void userController.registration(req, res, next);
-    });
-  server.post('/login',
+    }
+  );
+  server.post(
+    '/login',
     body('email').isEmail(),
     body('password').isLength({ min: 3, max: 32 }),
     (req: Request, res: Response, next: NextFunction) => {
       void userController.login(req, res, next);
-    });
+    }
+  );
   server.post('/logout', (req: Request, res: Response, next: NextFunction) => {
     void userController.logout(req, res, next);
   });
@@ -59,9 +63,13 @@ const wrapper = async (): Promise<void> => {
   server.get('/refresh', (req: Request, res: Response, next: NextFunction) => {
     void userController.refresh(req, res, next);
   });
-  server.get('/users', authMiddleware, (req: Request, res: Response, next: NextFunction) => {
-    void userController.getUsers(req, res, next);
-  });
+  server.get(
+    '/users',
+    authMiddleware,
+    (req: Request, res: Response, next: NextFunction) => {
+      void userController.getUsers(req, res, next);
+    }
+  );
 
   server.use(router);
 

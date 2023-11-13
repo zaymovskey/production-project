@@ -38,11 +38,13 @@ svg {
 }
 
 .line {
-  fill:none;
-  transition: stroke-dasharray var(--transition), stroke-dashoffset var(--transition);
+  fill: none;
+  transition:
+    stroke-dasharray var(--transition),
+    stroke-dashoffset var(--transition);
   stroke: var(--primary-accent-color);
-  stroke-width:5.5;
-  stroke-linecap:round;
+  stroke-width: 5.5;
+  stroke-linecap: round;
 }
 
 .top {
@@ -58,5 +60,7 @@ svg {
 .bottom {
   stroke-dasharray: 40 85;
   transform-origin: 50%;
-  transition: transform var(--transition), stroke-dashoffset var(--transition);
+  transition:
+    transform var(--transition),
+    stroke-dashoffset var(--transition);
 }

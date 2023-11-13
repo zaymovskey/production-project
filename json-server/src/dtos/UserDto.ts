@@ -5,7 +5,7 @@ export class UserDto {
   id;
   isActivated;
 
-  constructor (model: IUser) {
+  constructor(model: IUser) {
     this.email = model.email;
     this.id = model.id;
     this.isActivated = model.isActivated;

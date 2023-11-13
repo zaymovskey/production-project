@@ -4,7 +4,7 @@ import { counterReducer } from 'entity/Counter';
 import { userReducer } from 'entity/User';
 import { type IStateScheme } from './StateScheme';
 
-export function createReduxStore (initialState?: IStateScheme): ToolkitStore {
+export function createReduxStore(initialState?: IStateScheme): ToolkitStore {
   const rootReducers: ReducersMapObject<IStateScheme> = {
     counter: counterReducer,
     user: userReducer

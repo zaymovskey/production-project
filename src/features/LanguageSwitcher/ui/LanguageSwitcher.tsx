@@ -18,7 +18,7 @@ export const LanguageSwitcher: FC<ILanguageSwitcherProps> = ({ className }) => {
   return (
     <div className={classNames(cls.LanguageSwitcher, {}, [className])}>
       <input
-        type="checkbox"
+        type='checkbox'
         id={checkboxId}
         className={cls.checkbox}
         checked={i18n.language === 'en'}

@@ -13,7 +13,7 @@ const meta = {
     }
   },
   // decorators: [listDecorator],
-  render: function Render (args) {
+  render: function Render(args) {
     /* eslint-disable @typescript-eslint/no-unused-vars */
     const [SLoading, setSLoading] = useState(false);
     const [MLoading, setMLoading] = useState(false);
@@ -29,41 +29,35 @@ const meta = {
       }, 1000);
     };
 
-    const buttons =
-      (Object.keys(EnumButtonSize) as Array<keyof typeof EnumButtonSize>)
-        .map((size, index) => (
-          <Button
-            key={index}
-            onClick={() => {
-              setLoading(size);
-            }}
-            loading={eval(`${size}Loading`)}
-            size={EnumButtonSize[size]}
-            {...args}
-          >{`size ${size}`}
-          </Button>
-        ));
+    const buttons = (
+      Object.keys(EnumButtonSize) as Array<keyof typeof EnumButtonSize>
+    ).map((size, index) => (
+      <Button
+        key={index}
+        onClick={() => {
+          setLoading(size);
+        }}
+        loading={eval(`${size}Loading`)}
+        size={EnumButtonSize[size]}
+        {...args}
+      >
+        {`size ${size}`}
+      </Button>
+    ));
     /* eslint-enable no-eval */
 
-    const loadingButtons = (Object.keys(EnumButtonSize) as Array<keyof typeof EnumButtonSize>)
-      .map((size, index) => (
-        <Button
-          key={index}
-          loading={true}
-          size={EnumButtonSize[size]}
-          {...args}
-        >{`size ${size}`}
-        </Button>
-      ));
+    const loadingButtons = (
+      Object.keys(EnumButtonSize) as Array<keyof typeof EnumButtonSize>
+    ).map((size, index) => (
+      <Button key={index} loading={true} size={EnumButtonSize[size]} {...args}>
+        {`size ${size}`}
+      </Button>
+    ));
 
     return (
       <div style={rowsContainer}>
-        <div style={row}>
-          {buttons}
-        </div>
-        <div style={row}>
-          {loadingButtons}
-        </div>
+        <div style={row}>{buttons}</div>
+        <div style={row}>{loadingButtons}</div>
       </div>
     );
   }

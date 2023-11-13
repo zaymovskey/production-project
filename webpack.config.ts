@@ -2,10 +2,15 @@
 import path from 'path'; // Стандарный node.js модуль
 import type webpack from 'webpack';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
-import { type IBuildEnv, type TypeBuildMode, type IBuildPaths } from './config/build/types/config';
+import {
+  type IBuildEnv,
+  type TypeBuildMode,
+  type IBuildPaths
+} from './config/build/types/config';
 
 export default (env: IBuildEnv): webpack.Configuration => {
-  const paths: IBuildPaths = { // Заранее определяем все пути
+  const paths: IBuildPaths = {
+    // Заранее определяем все пути
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     build: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),

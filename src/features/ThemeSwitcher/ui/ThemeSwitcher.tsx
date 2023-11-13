@@ -15,7 +15,7 @@ export const ThemeSwitcher: FC<IThemeSwitcherProps> = ({ className }) => {
   return (
     <div className={classNames(cls.ThemeSwitcher, {}, [className])}>
       <input
-        type="checkbox"
+        type='checkbox'
         id={checkboxId}
         className={cls.checkbox}
         checked={theme === EnumTheme.DARK}

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "*" : ["./src/*"], // Все абсолютные импорты/экспорты будут идти из папки src
+      "*": ["./src/*"] // Все абсолютные импорты/экспорты будут идти из папки src
     },
     "outDir": "./dist/",
     "noImplicitAny": true, // Заставляет использовать типизацию
@@ -14,9 +14,7 @@
     "allowSyntheticDefaultImports": true, // Позволяет импортировать пакет с помощью import some_name from pack_name,
     // а не import * as some_name from pack_name, даже если у пакета нет export default
     "esModuleInterop": true, // Позволяет работать с пакетами, которые используют common js как с обычными пакетами import/export
-    "plugins": [
-      { "name": "typescript-plugin-css-modules" }
-    ],
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "strictNullChecks": true,
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },

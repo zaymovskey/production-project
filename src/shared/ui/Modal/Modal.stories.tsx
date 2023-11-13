@@ -24,16 +24,18 @@ export const Closed: Story = {
     children: childrenString,
     closeByBackdrop: true
   },
-  render: function Redner (args) {
+  render: function Redner(args) {
     const [isOpen, setIsOpen] = useState(false);
     return (
       <>
-        <Button onClick={() => {
-          setIsOpen(true);
-        }}>Open modal</Button>
-        { isOpen && (
-          <Modal {...args} setShowModal={setIsOpen}/>
-        ) }
+        <Button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
+          Open modal
+        </Button>
+        {isOpen && <Modal {...args} setShowModal={setIsOpen} />}
       </>
     );
   }
@@ -44,13 +46,11 @@ export const Opened: Story = {
     children: childrenString,
     closeByBackdrop: false
   },
-  render: function Redner (args, context) {
+  render: function Redner(args, context) {
     if (context.viewMode === 'docs') {
       return <></>;
     }
 
-    return (
-      <Modal {...args}/>
-    );
+    return <Modal {...args} />;
   }
 };

@@ -60,7 +60,8 @@
   font-size: var(--font-size-s);
   padding: 4px 16px;
 
-  .loader div, .loader {
+  .loader div,
+  .loader {
     width: 16px;
     height: 16px;
   }
@@ -75,7 +76,8 @@
   font-size: var(--font-size-m);
   padding: 8px 24px;
 
-  .loader div, .loader {
+  .loader div,
+  .loader {
     width: 24px;
     height: 24px;
   }
@@ -90,7 +92,8 @@
   font-size: var(--font-size-l);
   padding: 12px 32px;
 
-  .loader div, .loader {
+  .loader div,
+  .loader {
     width: 32px;
     height: 32px;
   }
@@ -105,7 +108,8 @@
   font-size: var(--font-size-xl);
   padding: 16px 40px;
 
-  .loader div, .loader {
+  .loader div,
+  .loader {
     width: 40px;
     height: 40px;
   }
@@ -114,5 +118,3 @@
     border-width: 5px;
   }
 }
-
-

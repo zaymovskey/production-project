@@ -27,7 +27,7 @@
   left: 50%;
   flex-direction: column;
   row-gap: 10px;
-  transform: translateX(-50%)
+  transform: translateX(-50%);
 }
 
 .body {
@@ -61,7 +61,7 @@
         width: var(--icon-size);
 
         path {
-          fill: var(--primary-accent-color)
+          fill: var(--primary-accent-color);
         }
       }
     }

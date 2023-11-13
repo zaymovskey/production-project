@@ -11,8 +11,8 @@ const AppRouter: FC = () => {
           key={path}
           path={path}
           element={
-            <Suspense fallback={<PageLoader/>}>
-              <div className="page-wrapper">{element}</div>
+            <Suspense fallback={<PageLoader />}>
+              <div className='page-wrapper'>{element}</div>
             </Suspense>
           }
         />

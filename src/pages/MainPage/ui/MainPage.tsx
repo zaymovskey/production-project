@@ -13,15 +13,14 @@ const MainPage: FC = () => {
       <div>
         <Button
           size={EnumButtonSize.S}
-          onClick={() => { setOpen(true); }}>....</Button>
-      </div>
-      { open &&
-        <Modal
-          setShowModal={setOpen}
+          onClick={() => {
+            setOpen(true);
+          }}
         >
           ....
-        </Modal>
-      }
+        </Button>
+      </div>
+      {open && <Modal setShowModal={setOpen}>....</Modal>}
       {/* <Modal isOpen={open} setIsOpen={setIsOpen}>....</Modal> */}
     </div>
   );
