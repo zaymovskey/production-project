@@ -1,4 +1,4 @@
-export interface LoginScheme {
+export interface ILoginScheme {
   email: string;
   password: string;
   isLoading: boolean;

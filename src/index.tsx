@@ -4,15 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import App from 'app/App';
 import '../config/i18n/i18n';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
-import { StoreProvider } from 'app/providers/StoreProvider';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
+import { store } from 'app/store/config/store';
+import { Provider } from 'react-redux';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 
 root.render(
   <StrictMode>
-    <StoreProvider>
+    <Provider store={store}>
       <BrowserRouter>
         <ErrorBoundary>
           <ThemeProvider>
@@ -20,6 +21,6 @@ root.render(
           </ThemeProvider>
         </ErrorBoundary>
       </BrowserRouter>
-    </StoreProvider>
+    </Provider>
   </StrictMode>
 );

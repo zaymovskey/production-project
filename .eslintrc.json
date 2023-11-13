@@ -42,6 +42,7 @@
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/semi": [2, "always"],
     "semi": [2, "always"],
+    "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {

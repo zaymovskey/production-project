@@ -34,6 +34,17 @@ const wrapper = async (): Promise<void> => {
   server.use(jsonServer.defaults());
   server.use(cookies());
 
+  const suspense = () => async (req: Request, res: Response, next: NextFunction) => {
+    await new Promise((_resolve) => {
+      setTimeout(_resolve, 800);
+    });
+    next();
+  };
+
+  server.use((req, res, next) => {
+    void suspense()(req, res, next);
+  });
+
   await usersDB.read();
 
   const userController = new UserController(usersDB);

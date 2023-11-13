@@ -1,6 +1,6 @@
 import { type FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LoginModal } from 'features/Auth/ui/LoginModal/LoginModal';
+import { LoginModal } from 'features/Auth';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, EnumButtonSize, EnumButtonTheme } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';

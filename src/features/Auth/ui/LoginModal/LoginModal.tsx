@@ -1,7 +1,6 @@
 import { type FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LoginForm } from 'features/Auth/ui/LoginForm/LoginForm';
-import { RegistrationForm } from 'features/Auth/ui/RegistrationForm/RegistrationForm';
+import { RegistrationForm, LoginForm } from 'features/Auth';
 import AccountIcon from 'shared/assets/icons/account.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { type IModalProps, Modal } from 'shared/ui/Modal/Modal';

@@ -1,6 +1,5 @@
 import {
   type ChangeEvent,
-  type FC,
   type HTMLInputTypeAttribute,
   type InputHTMLAttributes,
   memo
@@ -23,16 +22,14 @@ interface IInputProps extends HTMLInputProps {
   theme?: EnumInputTheme;
 }
 
-export const Input: FC<IInputProps> = memo((props) => {
+export const Input = memo<IInputProps>((props: IInputProps) => {
   const {
-    /* eslint-disable react/prop-types */
     className,
     value,
     onChange,
     type = 'text',
     theme = EnumInputTheme.PRIMARY,
     ...defaultInputProps
-    /* eslint-enable react/prop-types */
   } = props;
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
