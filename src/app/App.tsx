@@ -1,4 +1,3 @@
-import { getUserIsAuth } from 'entity/User';
 import { type FC, useEffect } from 'react';
 import './styles/index.scss';
 import { AppRouter } from 'app/providers/AppRouter';

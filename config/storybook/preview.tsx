@@ -1,9 +1,9 @@
 import type { Preview } from '@storybook/react';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import i18n from '../i18n/i18n';
 import '../../src/app/styles/index.scss';
 import { routerDecorator } from 'shared/lib/storybook/routerDecorator';
 import { themeDecorator } from 'shared/lib/storybook/themeDecorator';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import i18n from '../i18n/i18n';
 
 const preview: Preview = {
   parameters: {

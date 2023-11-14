@@ -9,10 +9,10 @@ import { type NextFunction } from 'express-serve-static-core';
 import { body } from 'express-validator';
 import jsonServer from 'json-server';
 import { UserController } from './src/controllers/UserController';
+import { authMiddleware } from './src/middlewares/authMiddleware';
 import { errorMiddleware } from './src/middlewares/errorMiddleware';
 import { type IUser } from './src/models/UserModel';
 import './global';
-import { authMiddleware } from './src/middlewares/authMiddleware';
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
