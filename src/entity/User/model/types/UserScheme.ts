@@ -1,8 +1,10 @@
 export interface IUser {
   id: string;
-  username: string;
+  email: string;
+  isActivated: boolean;
 }
 
 export interface IUserScheme {
+  isAuth: boolean;
   authData?: IUser;
 }

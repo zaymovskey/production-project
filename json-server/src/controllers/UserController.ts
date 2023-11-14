@@ -83,7 +83,7 @@ export class UserController {
       await this.userService.active(activationLink);
       res.redirect(process.env.CLIENT_URL);
     } catch (e) {
-      console.log(e);
+      next(e);
     }
   }
 
@@ -92,11 +92,15 @@ export class UserController {
     res: Response,
     next: NextFunction
   ): Promise<Response | undefined> {
-    const { refreshToken } = req.cookies;
-    const userData = await this.userService.refresh(refreshToken);
-    const maxAge = 30 * 24 * 60 * 60 * 1000;
-    res.cookie('refreshToken', userData.refreshToken, { maxAge, httpOnly: true });
-    return res.json(userData);
+    try {
+      const { refreshToken } = req.cookies;
+      const userData = await this.userService.refresh(refreshToken);
+      const maxAge = 30 * 24 * 60 * 60 * 1000;
+      res.cookie('refreshToken', userData.refreshToken, { maxAge, httpOnly: true });
+      return res.json(userData);
+    } catch (e) {
+      next(e);
+    }
   }
 
   public async getUsers(

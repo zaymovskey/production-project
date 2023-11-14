@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { type ILoginScheme } from 'features/Auth';
-import { login } from 'features/Auth/model/services/login/login';
+import { login } from 'features/Auth/model/services/login';
 
 const initialState: ILoginScheme = {
   email: '',

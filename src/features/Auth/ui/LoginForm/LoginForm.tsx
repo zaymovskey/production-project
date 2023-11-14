@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from 'app/store/lib/hooks';
 import { loginActions } from 'features/Auth';
 import { getLoginState } from 'features/Auth/model/selectors/getLoginState/getLoginState';
-import { login } from 'features/Auth/model/services/login/login';
+import { login } from 'features/Auth/model/services/login';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, EnumButtonTheme } from 'shared/ui/Button/Button';
 import { EnumInputTheme, Input } from 'shared/ui/Input/Input';

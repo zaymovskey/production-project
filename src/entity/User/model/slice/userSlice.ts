@@ -1,12 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { type IUserScheme } from 'entity/User/model/types/UserScheme';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { type IUser, type IUserScheme } from 'entity/User/model/types/UserScheme';
 
-const initialState: IUserScheme = {};
+const initialState: IUserScheme = {
+  isAuth: false
+};
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {}
+  reducers: {
+    setAuthData: (state, action: PayloadAction<IUser>) => {
+      state.authData = action.payload;
+    },
+    setIsAuth: (state, action: PayloadAction<boolean>) => {
+      state.isAuth = action.payload;
+    },
+    initAuthData: (state, action: PayloadAction<IUser>) => {
+      state.authData = action.payload;
+    }
+  }
 });
 
 export const { actions: userActions } = userSlice;
