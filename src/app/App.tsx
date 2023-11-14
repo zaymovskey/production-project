@@ -1,4 +1,4 @@
-import { getIsAuth } from 'entity/User';
+import { getUserIsAuth } from 'entity/User';
 import { type FC, useEffect } from 'react';
 import './styles/index.scss';
 import { AppRouter } from 'app/providers/AppRouter';
@@ -12,7 +12,6 @@ const App: FC = () => {
   const { theme } = useTheme();
   document.body.className = theme;
 
-  // const isAuth = useAppSelector(getIsAuth);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

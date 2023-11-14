@@ -26,6 +26,7 @@ export const login = createAsyncThunk<
 
     localStorage.setItem('token', response.data.accessToken);
     thunkAPI.dispatch(userActions.setAuthData(response.data.user));
+    thunkAPI.dispatch(userActions.setIsAuth(true));
 
     return response.data;
   } catch (e) {
