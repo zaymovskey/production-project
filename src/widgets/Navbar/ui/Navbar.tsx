@@ -1,8 +1,10 @@
 import { type FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LoginModal } from 'features/Auth';
+import { useAppSelector } from 'app/store/lib/hooks';
+import { getUserAuthData, LoginModal } from 'features/Auth';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, EnumButtonSize, EnumButtonTheme } from 'shared/ui/Button/Button';
+import { ConfirmModal } from 'shared/ui/ConfitmModal/ConfirmModal';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -12,27 +14,63 @@ interface INavbarProps {
 export const Navbar: FC<INavbarProps> = ({ className }) => {
   const { t } = useTranslation();
   const [loginModalIsOpen, setLoginModalIsOpen] = useState(false);
+  const [confirmExitModalIsOpen, setConfirmExitModalIsOpen] = useState(false);
 
-  const onCloseModal = (): void => {
+  const authData = useAppSelector(getUserAuthData);
+
+  const onCloseLoginModal = (): void => {
     setLoginModalIsOpen(false);
   };
 
-  const onOpenModal = (): void => {
+  const onOpenLoginModal = (): void => {
     setLoginModalIsOpen(true);
   };
 
+  const onCloseExitConfirmModal = (): void => {
+    setConfirmExitModalIsOpen(false);
+  };
+
+  const onOpenExitConfirmModal = (): void => {
+    setConfirmExitModalIsOpen(true);
+  };
+
+  if (authData != null) {
+    return (
+      <header className={classNames(cls.Navbar, {}, [className])}>
+        <div className={cls.rightSection}>
+          <Button
+            size={EnumButtonSize.S}
+            theme={EnumButtonTheme.CONTOUR}
+            onClick={onOpenExitConfirmModal}
+          >
+            {t('Выход')}
+          </Button>
+        </div>
+        {confirmExitModalIsOpen && (
+          <ConfirmModal
+            titleText={t('Выход')}
+            bodyText={t('Вы уверены, что хотите выйти?')}
+            setShowModal={onCloseExitConfirmModal}
+            onConfirmHandler={() => {}}
+            onCancelHandler={() => {}}
+          />
+        )}
+      </header>
+    );
+  }
+
   return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
+    <header className={classNames(cls.Navbar, {}, [className])}>
       <div className={cls.rightSection}>
         <Button
           size={EnumButtonSize.S}
           theme={EnumButtonTheme.CONTOUR}
-          onClick={onOpenModal}
+          onClick={onOpenLoginModal}
         >
-          {t('Войти')}
+          {t('Вход')}
         </Button>
       </div>
-      {loginModalIsOpen && <LoginModal setShowModal={onCloseModal} />}
-    </div>
+      {loginModalIsOpen && <LoginModal setShowModal={onCloseLoginModal} />}
+    </header>
   );
 };

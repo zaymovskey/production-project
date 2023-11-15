@@ -17,11 +17,11 @@ export const LoginModal: FC<ILoginModalProps> = ({ className, ...modalProps }) =
   const tabs: ITab[] = [
     {
       id: 1,
-      title: t('Войти')
+      title: t('Вход')
     },
     {
       id: 2,
-      title: t('Зарегистрироваться')
+      title: t('Регистрация')
     }
   ];
 

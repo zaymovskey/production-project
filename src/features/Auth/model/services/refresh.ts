@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { userActions } from 'entity/User';
-import { type IAuthResponse } from 'features/Auth/model/types/response/AuthResponse';
+import { type IAuthResponse } from 'features/Auth/model/types/AuthResponse';
+import { TOKEN_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 
 export const refresh = createAsyncThunk<IAuthResponse>(
   'auth/refresh',
@@ -15,7 +16,7 @@ export const refresh = createAsyncThunk<IAuthResponse>(
         throw new Error('empty');
       }
 
-      localStorage.setItem('token', response.data.accessToken);
+      localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, response.data.accessToken);
       thunkAPI.dispatch(userActions.setAuthData(response.data.user));
 
       return response.data;

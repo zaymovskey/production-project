@@ -33,7 +33,7 @@ export const RegistrationForm: FC<IRegistrationProps> = ({ className }) => {
           theme={EnumInputTheme.BOTTOM_BORDER}
         />
       </div>
-      <Button theme={EnumButtonTheme.FILLED}>{t('Зарегистрироваться')}</Button>
+      <Button theme={EnumButtonTheme.FILLED}>{t('Регистрация')}</Button>
     </form>
   );
 };

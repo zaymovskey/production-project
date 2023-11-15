@@ -4,7 +4,7 @@ import { Button, EnumButtonSize } from 'shared/ui/Button/Button';
 import { Modal } from 'shared/ui/Modal/Modal';
 
 const MainPage: FC = () => {
-  const { t } = useTranslation('main');
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
   return (

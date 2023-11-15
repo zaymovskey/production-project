@@ -46,6 +46,7 @@
     "@testing-library/react": "^14.0.0",
     "@types/bcrypt": "^5.0.2",
     "@types/cookie-parser": "^1.4.6",
+    "@types/i18next": "^13.0.0",
     "@types/jest": "^29.5.5",
     "@types/json-server": "^0.14.7",
     "@types/jsonwebtoken": "^9.0.4",

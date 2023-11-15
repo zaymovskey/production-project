@@ -61,7 +61,7 @@ export const LoginForm = memo(({ className }: ILoginFormProps) => {
         />
       </div>
       <Button type={'submit'} theme={EnumButtonTheme.FILLED} loading={isLoading}>
-        {t('Войти')}
+        {t('Вход')}
       </Button>
     </form>
   );

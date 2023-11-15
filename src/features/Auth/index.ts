@@ -1,3 +1,4 @@
+import { getUserAuthData } from 'entity/User/model/selectors/getUserAuthData/getUserAuthData';
 import {
   loginActions,
   loginSlice,
@@ -15,5 +16,6 @@ export {
   LoginForm,
   loginSlice,
   loginActions,
+  getUserAuthData,
   loginReducer
 };

@@ -5,3 +5,7 @@ export interface IAuthResponse {
   refreshToken: string;
   user: IUser;
 }
+
+export interface ILogoutResponse {
+  message: string;
+}

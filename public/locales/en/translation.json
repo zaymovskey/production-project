@@ -1,12 +1,15 @@
 {
-  "О сайте": "About",
+  "Email": "Email",
+  "Вход": "Login",
+  "Выход": "Exit",
   "Главная": "Main",
-  "Страница не найдена": "Page not found",
-  "Произошла ошибка": "There was an error",
-  "Обновить страницу": "Reload page",
-  "Войти": "Login",
+  "Да": "Yes",
   "Логин": "Login",
+  "Нет": "No",
+  "О сайте": "About",
+  "Обновить страницу": "Reload page",
   "Пароль": "Password",
-  "Зарегистрироваться": "Sign up",
-  "Email": "Email"
+  "Произошла ошибка": "There was an error",
+  "Регистрация": "Sign up",
+  "Страница не найдена": "Page not found"
 }

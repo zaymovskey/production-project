@@ -6,6 +6,7 @@ import { useAppDispatch } from 'app/store/lib/hooks';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/SideBar';
 import { refresh } from 'features/Auth/model/services/refresh';
+import { TOKEN_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 
 const App: FC = () => {
   const { theme } = useTheme();
@@ -14,7 +15,7 @@ const App: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (localStorage.getItem('token') != null) {
+    if (localStorage.getItem(TOKEN_LOCALSTORAGE_KEY) != null) {
       void dispatch(refresh());
     }
   }, [dispatch]);
