@@ -16,7 +16,7 @@ export const RegistrationForm: FC<IRegistrationProps> = ({ className }) => {
   const [password, setPassword] = useState('');
 
   return (
-    <div className={classNames(cls.RegistrationForm, {}, [className])}>
+    <form className={classNames(cls.RegistrationForm, {}, [className])}>
       <div className={cls.inputs}>
         <Input
           value={login}
@@ -34,6 +34,6 @@ export const RegistrationForm: FC<IRegistrationProps> = ({ className }) => {
         />
       </div>
       <Button theme={EnumButtonTheme.FILLED}>{t('Зарегистрироваться')}</Button>
-    </div>
+    </form>
   );
 };

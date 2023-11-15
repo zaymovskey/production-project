@@ -1,4 +1,4 @@
-import { useCallback, memo } from 'react';
+import { useCallback, memo, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from 'app/store/lib/hooks';
 import { loginActions } from 'features/Auth';
@@ -33,12 +33,17 @@ export const LoginForm = memo(({ className }: ILoginFormProps) => {
     [dispatch]
   );
 
-  const onLoginClick = useCallback(() => {
+  const onFormSubmit = (e: FormEvent<EventTarget | HTMLFormElement>): void => {
+    e.preventDefault();
     void dispatch(login({ email, password }));
-  }, [dispatch, email, password]);
+  };
 
   return (
-    <div className={classNames(cls.LoginForm, {}, [className])}>
+    <form
+      className={classNames(cls.LoginForm, {}, [className])}
+      onSubmit={onFormSubmit}
+      noValidate={true}
+    >
       <div className={cls.inputs}>
         <Input
           value={email}
@@ -55,10 +60,10 @@ export const LoginForm = memo(({ className }: ILoginFormProps) => {
           theme={EnumInputTheme.BOTTOM_BORDER}
         />
       </div>
-      <Button onClick={onLoginClick} theme={EnumButtonTheme.FILLED} loading={isLoading}>
+      <Button type={'submit'} theme={EnumButtonTheme.FILLED} loading={isLoading}>
         {t('Войти')}
       </Button>
-    </div>
+    </form>
   );
 });
 
