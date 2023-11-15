@@ -4,6 +4,7 @@
     "paths": {
       "*": ["./src/*"] // Все абсолютные импорты/экспорты будут идти из папки src
     },
+    "resolveJsonModule": true,
     "outDir": "./dist/",
     "noImplicitAny": true, // Заставляет использовать типизацию
     "module": "esnext", // Модульная сборка
