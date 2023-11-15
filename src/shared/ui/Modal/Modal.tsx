@@ -1,6 +1,7 @@
 import {
   type Dispatch,
   type FC,
+  type MutableRefObject,
   type ReactNode,
   type SetStateAction,
   useCallback,
@@ -17,23 +18,17 @@ export interface IModalProps {
   children?: ReactNode;
   setShowModal: Dispatch<SetStateAction<boolean>>;
   closeByBackdrop?: boolean;
+  closeModalRef?: MutableRefObject<() => void>;
 }
 
 export const Modal: FC<IModalProps> = ({
   className,
   children,
   setShowModal,
-  closeByBackdrop = true
+  closeByBackdrop = true,
+  closeModalRef
 }) => {
   const [showContent, setShowContent] = useState(false);
-
-  const mods: Record<string, boolean> = {
-    [cls.showModal]: showContent
-  };
-
-  useEffect(() => {
-    setShowContent(true);
-  }, []);
 
   const closeHandler = useCallback((): void => {
     setShowContent(false);
@@ -41,6 +36,12 @@ export const Modal: FC<IModalProps> = ({
       setShowModal(false);
     }, 100);
   }, [setShowModal]);
+
+  useEffect(() => {
+    if (closeModalRef != null) closeModalRef.current = closeHandler;
+
+    setShowContent(true);
+  }, [closeHandler, closeModalRef]);
 
   const closeByBackdropHandler = useCallback((): void => {
     if (closeByBackdrop) closeHandler();
@@ -62,6 +63,10 @@ export const Modal: FC<IModalProps> = ({
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [showContent, onKeyDown]);
+
+  const mods: Record<string, boolean> = {
+    [cls.showModal]: showContent
+  };
 
   return (
     <Portal>

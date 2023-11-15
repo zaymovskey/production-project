@@ -1,10 +1,11 @@
-import { type FC, useState } from 'react';
+import { type FC, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from 'app/store/lib/hooks';
 import { getUserAuthData, LoginModal } from 'features/Auth';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, EnumButtonSize, EnumButtonTheme } from 'shared/ui/Button/Button';
+import { Button, EnumButtonTheme } from 'shared/ui/Button/Button';
 import { ConfirmModal } from 'shared/ui/ConfitmModal/ConfirmModal';
+import { useModal } from 'shared/ui/Modal/useModal';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -14,20 +15,13 @@ interface INavbarProps {
 export const Navbar: FC<INavbarProps> = ({ className }) => {
   const { t } = useTranslation();
   const [loginModalIsOpen, setLoginModalIsOpen] = useState(false);
-  const [confirmExitModalIsOpen, setConfirmExitModalIsOpen] = useState(false);
+  const [confirmExitModalIsOpen, setConfirmExitModalIsOpen, closeConfirmExitModal] =
+    useModal();
 
   const authData = useAppSelector(getUserAuthData);
 
-  const onCloseLoginModal = (): void => {
-    setLoginModalIsOpen(false);
-  };
-
   const onOpenLoginModal = (): void => {
     setLoginModalIsOpen(true);
-  };
-
-  const onCloseExitConfirmModal = (): void => {
-    setConfirmExitModalIsOpen(false);
   };
 
   const onOpenExitConfirmModal = (): void => {
@@ -46,9 +40,12 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
           <ConfirmModal
             titleText={t('Выход')}
             bodyText={t('Вы уверены, что хотите выйти?')}
-            setShowModal={onCloseExitConfirmModal}
+            setShowModal={setConfirmExitModalIsOpen}
             onConfirmHandler={() => {}}
-            onCancelHandler={() => {}}
+            onCancelHandler={() => {
+              closeConfirmExitModal.current();
+            }}
+            closeModalRef={closeConfirmExitModal}
           />
         )}
       </header>
@@ -62,7 +59,7 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
           {t('Вход')}
         </Button>
       </div>
-      {loginModalIsOpen && <LoginModal setShowModal={onCloseLoginModal} />}
+      {loginModalIsOpen && <LoginModal setShowModal={setLoginModalIsOpen} />}
     </header>
   );
 };
