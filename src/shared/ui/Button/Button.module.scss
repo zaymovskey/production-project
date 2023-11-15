@@ -1,7 +1,6 @@
 .Button {
   border-radius: var(--border-radius);
   cursor: pointer;
-  font-weight: bold;
   transition: var(--transition);
   display: inline-flex;
   justify-content: center;
@@ -58,7 +57,7 @@
 .size-s {
   max-height: 32px;
   font-size: var(--font-size-s);
-  padding: 4px 16px;
+  padding: 1px 6px;
 
   .loader div,
   .loader {
@@ -74,7 +73,7 @@
 .size-m {
   max-height: 40px;
   font-size: var(--font-size-m);
-  padding: 8px 24px;
+  padding: 4px 14px;
 
   .loader div,
   .loader {
@@ -90,7 +89,7 @@
 .size-l {
   max-height: 48px;
   font-size: var(--font-size-l);
-  padding: 12px 32px;
+  padding: 8px 22px;
 
   .loader div,
   .loader {
@@ -106,7 +105,7 @@
 .size-xl {
   max-height: 56px;
   font-size: var(--font-size-xl);
-  padding: 16px 40px;
+  padding: 12px 25px;
 
   .loader div,
   .loader {

@@ -6,7 +6,7 @@
       "password": "$2b$04$.FSpBInzvLHwKHBeSfkKmeCGauxcsEMpXqM1irxLi6aMNtFZNyuSG",
       "isActivated": true,
       "activationLink": "7f21d381-8ad4-4b2e-8883-11a6e860e038",
-      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InpheW1vdnNrZXlAbWFpbC5ydSIsImlkIjoiYWUxZTdiYmQtZWY5Yi00ODJhLWEwZWUtNWU3NzhjZGM1MTUxIiwiaXNBY3RpdmF0ZWQiOnRydWUsImlhdCI6MTcwMDA2NDI3NywiZXhwIjoxNzAyNjU2Mjc3fQ.p5xTw_P6GjB8JBGR9d3rjGnVXYn1x91p-AG7DhkZ_-E"
+      "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InpheW1vdnNrZXlAbWFpbC5ydSIsImlkIjoiYWUxZTdiYmQtZWY5Yi00ODJhLWEwZWUtNWU3NzhjZGM1MTUxIiwiaXNBY3RpdmF0ZWQiOnRydWUsImlhdCI6MTcwMDA2NjUyOSwiZXhwIjoxNzAyNjU4NTI5fQ.LPfnYRX2S0SJzSdSqMVxs1XtF1E3gZKFjI5F69c_8PE"
     }
   ]
 }

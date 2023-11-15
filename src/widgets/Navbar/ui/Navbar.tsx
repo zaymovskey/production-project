@@ -38,11 +38,7 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
         <div className={cls.rightSection}>
-          <Button
-            size={EnumButtonSize.S}
-            theme={EnumButtonTheme.CONTOUR}
-            onClick={onOpenExitConfirmModal}
-          >
+          <Button theme={EnumButtonTheme.CONTOUR} onClick={onOpenExitConfirmModal}>
             {t('Выход')}
           </Button>
         </div>
@@ -62,11 +58,7 @@ export const Navbar: FC<INavbarProps> = ({ className }) => {
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
       <div className={cls.rightSection}>
-        <Button
-          size={EnumButtonSize.S}
-          theme={EnumButtonTheme.CONTOUR}
-          onClick={onOpenLoginModal}
-        >
+        <Button theme={EnumButtonTheme.CONTOUR} onClick={onOpenLoginModal}>
           {t('Вход')}
         </Button>
       </div>

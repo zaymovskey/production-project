@@ -1,3 +1,18 @@
 .ConfirmModal {
   padding: var(--modal-content-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title {
+  font-size: var(--font-size-l);
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
 }
