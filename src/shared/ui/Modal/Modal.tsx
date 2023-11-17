@@ -1,7 +1,6 @@
 import {
   type Dispatch,
   type FC,
-  type MutableRefObject,
   type ReactNode,
   type SetStateAction,
   useCallback,
@@ -13,69 +12,48 @@ import { Backdrop } from 'shared/ui/Backdrop/Backdrop';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
-export interface IModalProps {
+interface IModalProps {
   className?: string;
-  children?: ReactNode;
-  setShowModal: Dispatch<SetStateAction<boolean>>;
-  closeByBackdrop?: boolean;
-  closeModalRef?: MutableRefObject<() => void>;
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  children: ReactNode;
 }
 
-export const Modal: FC<IModalProps> = ({
-  className,
-  children,
-  setShowModal,
-  closeByBackdrop = true,
-  closeModalRef
-}) => {
+export const Modal: FC<IModalProps> = ({ className, isOpen, setIsOpen, children }) => {
   const [showContent, setShowContent] = useState(false);
+  const [modalExistsOnPage, setModalExistsOnPage] = useState(false);
 
-  const closeHandler = useCallback((): void => {
+  const closeModal = useCallback(() => {
     setShowContent(false);
     setTimeout(() => {
-      setShowModal(false);
-    }, 100);
-  }, [setShowModal]);
+      setIsOpen(false);
+      setModalExistsOnPage(false);
+    }, 200);
+  }, [setIsOpen]);
 
   useEffect(() => {
-    if (closeModalRef != null) closeModalRef.current = closeHandler;
-
-    setShowContent(true);
-  }, [closeHandler, closeModalRef]);
-
-  const closeByBackdropHandler = useCallback((): void => {
-    if (closeByBackdrop) closeHandler();
-  }, [closeHandler, closeByBackdrop]);
-
-  const onKeyDown = useCallback(
-    (e: globalThis.KeyboardEvent): void => {
-      if (e.key === 'Escape') closeHandler();
-    },
-    [closeHandler]
-  );
-
-  useEffect(() => {
-    if (showContent) {
-      window.addEventListener('keydown', onKeyDown);
+    if (!isOpen) {
+      closeModal();
+      return;
     }
+    setModalExistsOnPage(true);
+    setTimeout(() => {
+      setShowContent(true);
+    }, 0);
+  }, [closeModal, isOpen]);
 
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [showContent, onKeyDown]);
-
-  const mods: Record<string, boolean> = {
-    [cls.showModal]: showContent
-  };
-
-  return (
+  return modalExistsOnPage ? (
     <Portal>
       <div>
-        <Backdrop close={closeByBackdropHandler} showBackdrop={showContent} />
-        <div className={classNames(cls.Modal, mods)}>
-          <div className={classNames(cls.children, {}, [className])}>{children}</div>
+        <Backdrop close={closeModal} showBackdrop={showContent} />
+        <div
+          className={classNames(cls.Modal, { [cls.opened]: showContent }, [className])}
+        >
+          {children}
         </div>
       </div>
     </Portal>
+  ) : (
+    <></>
   );
 };

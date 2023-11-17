@@ -2,10 +2,9 @@ import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
-import { type IModalProps, Modal } from 'shared/ui/Modal/Modal';
 import cls from './ConfirmModal.module.scss';
 
-interface IConfirmModalProps extends IModalProps {
+interface IConfirmModalProps {
   className?: string;
   titleText?: string;
   bodyText?: string;
@@ -28,13 +27,14 @@ export const ConfirmModal: FC<IConfirmModalProps> = ({
   const { t } = useTranslation();
 
   return (
-    <Modal className={classNames(cls.ConfirmModal, {}, [className])} {...modalProps}>
-      <div className={cls.title}>{titleText}</div>
-      <div className={cls.body}>{bodyText}</div>
-      <div className={cls.buttons}>
-        <Button onClick={onConfirmHandler}>{confirmText ?? t('Да')}</Button>
-        <Button onClick={onCancelHandler}>{cancelText ?? t('Нет')}</Button>
-      </div>
-    </Modal>
+    <></>
+    // <Modal className={classNames(cls.ConfirmModal, {}, [className])} {...modalProps}>
+    //   <div className={cls.title}>{titleText}</div>
+    //   <div className={cls.body}>{bodyText}</div>
+    //   <div className={cls.buttons}>
+    //     <Button onClick={onConfirmHandler}>{confirmText ?? t('Да')}</Button>
+    //     <Button onClick={onCancelHandler}>{cancelText ?? t('Нет')}</Button>
+    //   </div>
+    // </Modal>
   );
 };
