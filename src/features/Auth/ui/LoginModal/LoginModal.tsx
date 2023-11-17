@@ -1,9 +1,13 @@
 import { type FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RegistrationForm, LoginForm } from 'features/Auth';
-import AccountIcon from 'shared/assets/icons/account.svg';
+import { LoginForm, RegistrationForm } from 'features/Auth';
+import AccountIcon from 'shared/assets/icons/files/account.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { type IModalProps, Modal } from 'shared/ui/Modal/Modal';
+import {
+  EnumNotificationTheme,
+  Notification
+} from 'shared/ui/Notification/Notification';
 import { type ITab, Tabs } from 'shared/ui/Tabs/Tabs';
 import cls from './LoginModal.module.scss';
 
@@ -42,6 +46,7 @@ export const LoginModal: FC<ILoginModalProps> = ({ className, ...modalProps }) =
         <div className={cls.accountIcon}>
           <AccountIcon />
         </div>
+        <Notification theme={EnumNotificationTheme.ERROR} />
         {selectedTabId === 1 && <LoginForm onSuccessLogin={onSuccessLogin} />}
         {selectedTabId === 2 && <RegistrationForm />}
       </div>

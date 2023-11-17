@@ -61,6 +61,7 @@
           "requireLast": false
         }
       }
-    ]
+    ],
+    "import/no-internal-modules": "off"
   }
 }

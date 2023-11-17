@@ -3,10 +3,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 
-/* eslint-disable import/no-internal-modules */
 import translationEN from '../../public/locales/en.json';
 import translationRU from '../../public/locales/ru.json';
-/* eslint-enable import/no-internal-modules */
 
 console.log(translationEN);
 

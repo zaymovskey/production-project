@@ -18,7 +18,7 @@ export const LoginForm = memo(({ className, onSuccessLogin }: ILoginFormProps) =
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const { email, password, isLoading } = useAppSelector(getLoginState);
+  const { email, password, isLoading, error } = useAppSelector(getLoginState);
 
   const onChangeEmail = useCallback(
     (email: string) => {
