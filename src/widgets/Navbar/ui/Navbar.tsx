@@ -1,4 +1,4 @@
-import { type FC, useState, useCallback } from 'react';
+import { type FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from 'app/store/lib/hooks';
 import { getUserAuthData, LoginModal } from 'features/Auth';
@@ -16,7 +16,7 @@ interface INavbarProps {
 export const Navbar: FC<INavbarProps> = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const { email, password, isLoading } = useAppSelector(getLoginState);
+  const { isLoading } = useAppSelector(getLoginState);
 
   const authData = useAppSelector(getUserAuthData);
 
