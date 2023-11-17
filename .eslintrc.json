@@ -44,6 +44,11 @@
     "semi": [2, "always"],
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/indent": "off",
+    "multiline-ternary": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {"checksVoidReturn": {"attributes": false}}
+    ],
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {

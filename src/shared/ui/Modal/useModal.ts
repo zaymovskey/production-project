@@ -8,7 +8,9 @@ export function useModal(): readonly [
   MutableRefObject<ref>
 ] {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const closeModal = useRef<ref>(() => {});
+  const closeModal = useRef<ref>(() => {
+    console.log('zalupa');
+  });
 
   return [modalIsOpen, setModalIsOpen, closeModal] as const;
 }

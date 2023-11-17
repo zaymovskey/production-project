@@ -9,9 +9,14 @@ import cls from './LoginModal.module.scss';
 
 interface ILoginModalProps extends IModalProps {
   className?: string;
+  onSuccessLogin?: () => void;
 }
 
-export const LoginModal: FC<ILoginModalProps> = ({ className, ...modalProps }) => {
+export const LoginModal: FC<ILoginModalProps> = ({
+  className,
+  onSuccessLogin,
+  ...modalProps
+}) => {
   const { t } = useTranslation();
 
   const tabs: ITab[] = [
@@ -38,7 +43,7 @@ export const LoginModal: FC<ILoginModalProps> = ({ className, ...modalProps }) =
         <div className={cls.accountIcon}>
           <AccountIcon />
         </div>
-        {selectedTabId === 1 && <LoginForm />}
+        {selectedTabId === 1 && <LoginForm onSuccessLogin={onSuccessLogin} />}
         {selectedTabId === 2 && <RegistrationForm />}
       </div>
     </Modal>

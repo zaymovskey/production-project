@@ -11,9 +11,10 @@ import cls from './LoginForm.module.scss';
 
 interface ILoginFormProps {
   className?: string;
+  onSuccessLogin?: () => void;
 }
 
-export const LoginForm = memo(({ className }: ILoginFormProps) => {
+export const LoginForm = memo(({ className, onSuccessLogin }: ILoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
@@ -33,9 +34,18 @@ export const LoginForm = memo(({ className }: ILoginFormProps) => {
     [dispatch]
   );
 
-  const onFormSubmit = (e: FormEvent<EventTarget | HTMLFormElement>): void => {
+  const onFormSubmit = async (
+    e: FormEvent<EventTarget | HTMLFormElement>
+  ): Promise<void> => {
     e.preventDefault();
-    void dispatch(login({ email, password }));
+    // await dispatch(
+    //   login({
+    //     email,
+    //     password
+    //   })
+    // );
+    console.log('huy');
+    onSuccessLogin?.();
   };
 
   return (
