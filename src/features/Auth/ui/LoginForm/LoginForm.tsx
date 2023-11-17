@@ -38,13 +38,12 @@ export const LoginForm = memo(({ className, onSuccessLogin }: ILoginFormProps) =
     e: FormEvent<EventTarget | HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault();
-    // await dispatch(
-    //   login({
-    //     email,
-    //     password
-    //   })
-    // );
-    console.log('huy');
+    await dispatch(
+      login({
+        email,
+        password
+      })
+    );
     onSuccessLogin?.();
   };
 

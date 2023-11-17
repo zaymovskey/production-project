@@ -12,11 +12,11 @@ import { Backdrop } from 'shared/ui/Backdrop/Backdrop';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
-interface IModalProps {
+export interface IModalProps {
   className?: string;
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export const Modal: FC<IModalProps> = ({ className, isOpen, setIsOpen, children }) => {
