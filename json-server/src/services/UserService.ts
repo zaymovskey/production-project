@@ -60,7 +60,7 @@ export class UserService {
   ): Promise<{ user: UserDto; accessToken: string; refreshToken: string }> {
     const user = this.usersDB.data?.users.find((user) => user.email === email);
     if (user == null) {
-      throw ApiError.BadRequest(`Пользователя с email ${email} не зарегистрирован`);
+      throw ApiError.BadRequest(`Пользователь с email ${email} не зарегистрирован`);
     }
 
     const isPasswordsEqual = await compare(password, user.password);

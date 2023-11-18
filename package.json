@@ -98,6 +98,7 @@
     "sass-loader": "^13.3.2",
     "source-map-loader": "^4.0.1",
     "storybook": "^7.5.2",
+    "storybook-msw-addon": "^0.3.21",
     "style-loader": "3.3.3",
     "stylelint": "^15.10.2",
     "stylelint-config-standard-scss": "^10.0.0",
@@ -141,5 +142,8 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "msw": {
+    "workerDirectory": "config\\storybook"
   }
 }

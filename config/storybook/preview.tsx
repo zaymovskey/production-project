@@ -1,9 +1,18 @@
 import type { Preview } from '@storybook/react';
 import '../../src/app/styles/index.scss';
+import { initialize, mswLoader } from 'msw-storybook-addon';
+import { type InitializeOptions } from 'msw-storybook-addon/dist/mswDecorator';
 import { routerDecorator } from 'shared/lib/storybook/routerDecorator';
 import { themeDecorator } from 'shared/lib/storybook/themeDecorator';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import i18n from '../i18n/i18n';
+
+const options: InitializeOptions = {
+  onUnhandledRequest: 'bypass'
+};
+
+// Initialize MSW
+initialize(options);
 
 const preview: Preview = {
   parameters: {
@@ -30,6 +39,7 @@ const preview: Preview = {
       }
     }
   },
+  loaders: [mswLoader],
   decorators: [themeDecorator, routerDecorator]
 };
 
