@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { Button } from 'shared/ui/Button/Button';
-import { Modal } from './Modal';
+import { ConfirmModal } from './ConfirmModal';
 
 const meta = {
-  title: 'shared/Modal',
-  component: Modal,
+  title: 'shared/ConfirmModal',
+  component: ConfirmModal,
   tags: ['autodocs']
-} satisfies Meta<typeof Modal>;
+} satisfies Meta<typeof ConfirmModal>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -22,6 +22,8 @@ const childrenString = `
 export const Closed: Story = {
   args: {
     isOpen: false,
+    titleText: 'Test',
+    bodyText: 'Test test test test test test test?',
     children: childrenString
   },
   render: function Redner(args) {
@@ -35,7 +37,14 @@ export const Closed: Story = {
         >
           Open modal
         </Button>
-        <Modal {...args} setIsOpen={setIsOpen} isOpen={isOpen} />
+        <ConfirmModal
+          {...args}
+          onCancelHandler={() => {
+            setIsOpen(false);
+          }}
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+        />
       </>
     );
   }
@@ -51,6 +60,6 @@ export const Opened: Story = {
       return <></>;
     }
 
-    return <Modal {...args} />;
+    return <ConfirmModal {...args} />;
   }
 };
