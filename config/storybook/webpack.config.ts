@@ -1,5 +1,5 @@
 import path from 'path';
-import type webpack from 'webpack';
+import webpack from 'webpack';
 import { buildScssLoader } from '../build/loaders/buildScssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { type IBuildPaths } from '../build/types/config';
@@ -29,6 +29,12 @@ export default ({
   config.resolve?.extensions?.push('.ts', '.tsx');
   config.module?.rules?.push(buildScssLoader('development'));
   config.module?.rules?.push(buildSvgLoader());
+
+  config.plugins?.push(
+    new webpack.DefinePlugin({
+      _IS_DEV_: true
+    })
+  );
 
   return config;
 };
