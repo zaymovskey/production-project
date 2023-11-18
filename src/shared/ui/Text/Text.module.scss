@@ -1,9 +1,20 @@
 .Text {
-
+  //
 }
 
 .title {
   font: var(--font-l);
   font-weight: bold;
-  color: var(--primary-color);
+}
+
+.primary {
+  .title {
+    color: var(--primary-color);
+  }
+}
+
+.error {
+  .text {
+    color: var(--error-color);
+  }
 }

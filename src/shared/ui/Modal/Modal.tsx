@@ -64,6 +64,7 @@ export const Modal: FC<IModalProps> = ({
   );
 
   useEffect(() => {
+    console.log('huy11');
     if (showContent) {
       window.addEventListener('keydown', onKeyDown);
     }

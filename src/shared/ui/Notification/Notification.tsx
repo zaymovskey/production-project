@@ -14,9 +14,12 @@ const icons: Record<EnumNotificationTheme, ReactNode> = {
   error: <ErrorCloseIcon />
 };
 
-interface INotificationProps extends ITextProps {
+interface INotificationProps {
   className?: string;
   theme?: EnumNotificationTheme;
+
+  title?: string;
+  text?: string;
 }
 
 export const Notification: FC<INotificationProps> = ({

@@ -8,6 +8,15 @@
   }
 }
 
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  padding: 10px 0;
+}
+
 .primary {
   border: 1px solid var(--primary-accent-color-discolored);
 }
