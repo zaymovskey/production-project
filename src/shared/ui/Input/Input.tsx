@@ -22,29 +22,29 @@ interface IInputProps extends HTMLInputProps {
   theme?: EnumInputTheme;
 }
 
-export const Input = memo<IInputProps>((props: IInputProps) => {
-  const {
+export const Input = memo<IInputProps>(
+  ({
     className,
     value,
     onChange,
     type = 'text',
     theme = EnumInputTheme.PRIMARY,
     ...defaultInputProps
-  } = props;
+  }: IInputProps) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
+      onChange?.(e.target.value);
+    };
 
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
-    onChange?.(e.target.value);
-  };
-
-  return (
-    <input
-      className={classNames(cls.Input, {}, [className, cls[theme]])}
-      type={type}
-      value={value}
-      onChange={onChangeHandler}
-      {...defaultInputProps}
-    ></input>
-  );
-});
+    return (
+      <input
+        className={classNames(cls.Input, {}, [className, cls[theme]])}
+        type={type}
+        value={value}
+        onChange={onChangeHandler}
+        {...defaultInputProps}
+      ></input>
+    );
+  }
+);
 
 Input.displayName = 'Input';

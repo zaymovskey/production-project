@@ -12,7 +12,6 @@ const meta = {
       disable: true
     }
   },
-  // decorators: [listDecorator],
   render: function Render(args) {
     /* eslint-disable @typescript-eslint/no-unused-vars */
     const [SLoading, setSLoading] = useState(false);
