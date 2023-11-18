@@ -23,26 +23,28 @@ export const loginSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state, action) => {
-        state.error = undefined;
+        state.loginError = undefined;
         state.isLoading = true;
       })
       .addCase(logout.pending, (state, action) => {
-        state.error = undefined;
+        state.registerError = undefined;
         state.isLoading = true;
       })
+
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
       })
       .addCase(logout.fulfilled, (state, action) => {
         state.isLoading = false;
       })
+
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.loginError = action.payload;
       })
       .addCase(logout.rejected, (state, action) => {
         state.isLoading = false;
-        // state.error = action.payload;
+        state.registerError = action.payload;
       });
   }
 });

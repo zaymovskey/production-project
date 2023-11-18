@@ -14,3 +14,29 @@
   opacity: 1;
   transform: translate(-50%, -50%);
 }
+
+.content {
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: var(--transition);
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.children {
+  transition: var(--transition);
+  opacity: 1;
+
+  &.hide {
+    opacity: 0;
+  }
+}

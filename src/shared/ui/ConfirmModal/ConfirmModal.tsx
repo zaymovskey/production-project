@@ -24,22 +24,19 @@ export const ConfirmModal: FC<IConfirmModalProps> = ({
   cancelText,
   onConfirmHandler,
   onCancelHandler,
-  loading = false,
   ...modalProps
 }) => {
   const { t } = useTranslation();
 
   return (
-    <Modal className={classNames(cls.ConfirmModal, {}, [className])} {...modalProps}>
-      <div className={cls.title}>{titleText}</div>
-      <div className={cls.body}>{bodyText}</div>
-      <div className={cls.buttons}>
-        <Button loading={loading} onClick={onConfirmHandler}>
-          {confirmText ?? t('Да')}
-        </Button>
-        <Button loading={loading} onClick={onCancelHandler}>
-          {cancelText ?? t('Нет')}
-        </Button>
+    <Modal {...modalProps}>
+      <div className={classNames(cls.ConfirmModal, {}, [className])}>
+        <div className={cls.title}>{titleText}</div>
+        <div className={cls.body}>{bodyText}</div>
+        <div className={cls.buttons}>
+          <Button onClick={onConfirmHandler}>{confirmText ?? t('Да')}</Button>
+          <Button onClick={onCancelHandler}>{cancelText ?? t('Нет')}</Button>
+        </div>
       </div>
     </Modal>
   );

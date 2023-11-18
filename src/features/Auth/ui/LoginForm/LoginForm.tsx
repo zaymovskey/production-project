@@ -1,4 +1,5 @@
-import { useCallback, memo, type FormEvent } from 'react';
+import { unwrapResult } from '@reduxjs/toolkit';
+import { useCallback, memo, type FormEvent, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from 'app/store/lib/hooks';
 import { loginActions } from 'features/Auth';
@@ -7,6 +8,10 @@ import { login } from 'features/Auth/model/services/login';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, EnumButtonTheme } from 'shared/ui/Button/Button';
 import { EnumInputTheme, Input } from 'shared/ui/Input/Input';
+import {
+  EnumNotificationTheme,
+  Notification
+} from 'shared/ui/Notification/Notification';
 import cls from './LoginForm.module.scss';
 
 interface ILoginFormProps {
@@ -17,8 +22,9 @@ interface ILoginFormProps {
 export const LoginForm = memo(({ className, onSuccessLogin }: ILoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const [loginServerError, setServerLoginError] = useState<string>();
 
-  const { email, password, isLoading, error } = useAppSelector(getLoginState);
+  const { email, password, isLoading } = useAppSelector(getLoginState);
 
   const onChangeEmail = useCallback(
     (email: string) => {
@@ -34,45 +40,55 @@ export const LoginForm = memo(({ className, onSuccessLogin }: ILoginFormProps) =
     [dispatch]
   );
 
+  useEffect(() => {
+    setServerLoginError(undefined);
+  }, [email, password]);
+
   const onFormSubmit = async (
     e: FormEvent<EventTarget | HTMLFormElement>
   ): Promise<void> => {
     e.preventDefault();
-    await dispatch(
-      login({
-        email,
-        password
+    void dispatch(login({ email, password }))
+      .unwrap()
+      .then(() => {
+        onSuccessLogin?.();
       })
-    );
-    onSuccessLogin?.();
+      .catch((err) => {
+        setServerLoginError(err);
+      });
   };
 
   return (
-    <form
-      className={classNames(cls.LoginForm, {}, [className])}
-      onSubmit={onFormSubmit}
-      noValidate={true}
-    >
-      <div className={cls.inputs}>
-        <Input
-          value={email}
-          onChange={onChangeEmail}
-          placeholder={t('Email')}
-          type={'email'}
-          theme={EnumInputTheme.BOTTOM_BORDER}
-        />
-        <Input
-          value={password}
-          onChange={onChangePassword}
-          placeholder={t('Пароль')}
-          type={'password'}
-          theme={EnumInputTheme.BOTTOM_BORDER}
-        />
-      </div>
-      <Button type={'submit'} theme={EnumButtonTheme.FILLED} loading={isLoading}>
-        {t('Вход')}
-      </Button>
-    </form>
+    <>
+      {loginServerError != null && (
+        <Notification theme={EnumNotificationTheme.ERROR} text={loginServerError} />
+      )}
+      <form
+        className={classNames(cls.LoginForm, {}, [className])}
+        onSubmit={onFormSubmit}
+        noValidate={true}
+      >
+        <div className={cls.inputs}>
+          <Input
+            value={email}
+            onChange={onChangeEmail}
+            placeholder={t('Email')}
+            type={'email'}
+            theme={EnumInputTheme.BOTTOM_BORDER}
+          />
+          <Input
+            value={password}
+            onChange={onChangePassword}
+            placeholder={t('Пароль')}
+            type={'password'}
+            theme={EnumInputTheme.BOTTOM_BORDER}
+          />
+        </div>
+        <Button type={'submit'} theme={EnumButtonTheme.FILLED} loading={isLoading}>
+          {t('Вход')}
+        </Button>
+      </form>
+    </>
   );
 });
 
