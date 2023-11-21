@@ -7,21 +7,30 @@ export enum EnumTextTheme {
   ERROR = 'error'
 }
 
+export enum EnumTextSize {
+  S = 'size-s',
+  M = 'size-m',
+  L = 'size-l',
+  XL = 'size-xl'
+}
+
 export interface ITextProps {
   className?: string;
   title?: string;
   text?: string;
   theme?: EnumTextTheme;
+  size?: EnumTextSize;
 }
 
 export const Text: FC<ITextProps> = ({
   className,
   title,
   text,
-  theme = EnumTextTheme.PRIMARY
+  theme = EnumTextTheme.PRIMARY,
+  size = EnumTextSize.M
 }) => {
   return (
-    <div className={classNames(cls.Text, {}, [className, cls[theme]])}>
+    <div className={classNames(cls.Text, {}, [className, cls[theme], cls[size]])}>
       {title != null && <div className={cls.title}>{title}</div>}
       {text != null && <div className={cls.text}>{text}</div>}
     </div>

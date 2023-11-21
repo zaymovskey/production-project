@@ -38,7 +38,7 @@ export const Modal: FC<IModalProps> = ({
     setTimeout(() => {
       setIsOpen(false);
       setModalExistsOnPage(false);
-    }, 200);
+    }, 100);
   }, [setIsOpen]);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export const Modal: FC<IModalProps> = ({
     setModalExistsOnPage(true);
     setTimeout(() => {
       setShowContent(true);
-    }, 0);
+    }, 100);
   }, [closeModal, isOpen]);
 
   const closeByBackdropHandler = useCallback((): void => {
@@ -64,7 +64,6 @@ export const Modal: FC<IModalProps> = ({
   );
 
   useEffect(() => {
-    console.log('huy11');
     if (showContent) {
       window.addEventListener('keydown', onKeyDown);
     }

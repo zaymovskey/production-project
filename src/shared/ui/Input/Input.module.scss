@@ -24,3 +24,11 @@
 .bottomBorder {
   border-bottom: 2px solid var(--primary-accent-color-discolored);
 }
+
+.invalid {
+  border-color: var(--error-color);
+
+  &:focus {
+    border-color: var(--error-color);
+  }
+}

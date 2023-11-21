@@ -6,11 +6,14 @@
   "Главная": "Main",
   "Да": "Yes",
   "Логин": "Login",
+  "Минимальная длинна: ": "Minimum length: ",
+  "Некорректный email": "Incorrect email",
   "Нет": "No",
   "О сайте": "About",
   "Обновить страницу": "Reload page",
   "Пароль": "Password",
   "Произошла ошибка": "There was an error",
   "Регистрация": "Sign up",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Это поле обязательно для заполнения": "This field is required"
 }

@@ -3,11 +3,12 @@ import {
   type HTMLInputTypeAttribute,
   type InputHTMLAttributes,
   memo,
+  useEffect,
   useState
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { type IValidationSettings, validate } from 'shared/ui/Input/lib/validate';
-import { EnumTextTheme, Text } from 'shared/ui/Text/Text';
+import { EnumTextSize, EnumTextTheme, Text } from 'shared/ui/Text/Text';
 import cls from './Input.module.scss';
 
 export enum EnumInputTheme {
@@ -41,17 +42,23 @@ export const Input = memo<IInputProps>(
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
       onChange?.(e.target.value);
-      setInputIsChanged(true);
+      if (!inputIsChanged) setInputIsChanged(true);
+    };
 
-      if (validationSettings == null || !inputIsChanged) return;
-      const errorMessage = validate(validationSettings, e.target.value);
+    useEffect(() => {
+      if (validationSettings == null || !inputIsChanged || value == null) return;
+      const errorMessage = validate(validationSettings, value);
       setErrorMessage(errorMessage);
+    }, [inputIsChanged, validationSettings, value]);
+
+    const mods: Record<string, boolean> = {
+      [cls.invalid]: errorMessage !== ''
     };
 
     return (
       <div className={cls.inputWrapper}>
         <input
-          className={classNames(cls.Input, {}, [className, cls[theme]])}
+          className={classNames(cls.Input, mods, [className, cls[theme]])}
           type={type}
           value={value}
           onChange={onChangeHandler}
@@ -59,7 +66,11 @@ export const Input = memo<IInputProps>(
         ></input>
         {errorMessage !== '' && (
           <div className={cls.error}>
-            <Text text={errorMessage} theme={EnumTextTheme.ERROR} />
+            <Text
+              text={errorMessage}
+              theme={EnumTextTheme.ERROR}
+              size={EnumTextSize.S}
+            />
           </div>
         )}
       </div>

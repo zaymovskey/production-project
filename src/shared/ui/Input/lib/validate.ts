@@ -1,3 +1,5 @@
+import i18n from '../../../../../config/i18n/i18n';
+
 export interface IValidationSettings {
   required?: boolean;
   maxLength?: number;
@@ -14,11 +16,18 @@ export function validate(
   console.log(emailRegex.test(value));
 
   if (validationSettings.required === true && value.length === 0) {
-    return 'Это поле обязательно для заполнения';
+    return i18n.t('Это поле обязательно для заполнения');
+  }
+
+  if (
+    validationSettings.minLength != null &&
+    value.length < validationSettings.minLength
+  ) {
+    return i18n.t('Минимальная длинна: ') + validationSettings.minLength.toString();
   }
 
   if (validationSettings.isEmail === true && !emailRegex.test(value)) {
-    return 'Некорректный email';
+    return i18n.t('Некорректный email');
   }
 
   return '';

@@ -75,7 +75,7 @@ export const LoginForm = memo(({ className, onSuccessLogin }: ILoginFormProps) =
             placeholder={t('Email')}
             type={'email'}
             theme={EnumInputTheme.BOTTOM_BORDER}
-            validationSettings={{ required: true, isEmail: true }}
+            validationSettings={{ required: true, isEmail: true, minLength: 6 }}
           />
           <Input
             value={password}
