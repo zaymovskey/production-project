@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { storeDecorator } from 'shared/lib/storybook/storeDecorator';
 import { Button } from 'shared/ui/Button/Button';
-import { ConfirmModal } from 'shared/ui/ConfirmModal/ConfirmModal';
 import { LoginModal } from './LoginModal';
 
 const meta = {

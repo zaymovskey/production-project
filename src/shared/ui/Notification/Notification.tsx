@@ -1,7 +1,7 @@
 import { type FC, type ReactNode } from 'react';
 import { WarningIcon, ErrorCloseIcon } from 'shared/assets/icons';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { type ITextProps, Text } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 import cls from './Notification.module.scss';
 
 export enum EnumNotificationTheme {
